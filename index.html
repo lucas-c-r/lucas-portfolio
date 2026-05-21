@@ -2,325 +2,350 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Cucco | Data, Excel & Master Data Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Cucco | Portfolio</title>
 
   <style>
-    :root {
-      --bg: #05070b;
-      --text: #f8fafc;
-      --muted: #a3aab8;
-      --border: rgba(255,255,255,0.1);
-      --blue: #2f80ff;
-      --green: #22c55e;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    body{
+      background:#05070b;
+      color:white;
+      font-family:Arial, sans-serif;
+      line-height:1.7;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .container {
-      width: 92%;
-      max-width: 1120px;
-      margin: auto;
+    .container{
+      width:90%;
+      max-width:1150px;
+      margin:auto;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(5,7,11,0.9);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0;
-      backdrop-filter: blur(10px);
-      z-index: 10;
+    nav{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(5,7,11,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .nav-content{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
     }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
+    .logo{
+      font-size:26px;
+      font-weight:bold;
     }
 
-    .logo span {
-      color: var(--blue);
+    .logo span{
+      color:#2f80ff;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 22px;
+    .nav-links{
+      display:flex;
+      gap:25px;
     }
 
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 14px;
+    .nav-links a{
+      color:#9aa4b2;
+      text-decoration:none;
+      font-size:14px;
     }
 
-    .hero {
-      padding: 90px 0;
-      border-bottom: 1px solid var(--border);
+    .nav-links a:hover{
+      color:white;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0;
     }
 
-    .eyebrow {
-      color: var(--blue);
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-      font-weight: bold;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
     }
 
-    h1 {
-      font-size: 72px;
-      line-height: 0.95;
-      margin-bottom: 24px;
+    .eyebrow{
+      color:#2f80ff;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-size:13px;
+      font-weight:bold;
+      margin-bottom:20px;
     }
 
-    .highlight {
-      color: var(--blue);
+    h1{
+      font-size:88px;
+      line-height:0.95;
+      margin-bottom:30px;
+      font-weight:800;
     }
 
-    .hero-text {
-      color: var(--muted);
-      font-size: 20px;
-      margin-bottom: 28px;
-      max-width: 620px;
+    .blue{
+      color:#2f80ff;
     }
 
-    .buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+    .hero p{
+      font-size:22px;
+      color:#9aa4b2;
+      max-width:650px;
+      margin-bottom:35px;
     }
 
-    .btn {
-      padding: 14px 22px;
-      border-radius: 12px;
-      font-weight: bold;
-      text-decoration: none;
-      border: 1px solid var(--border);
-      transition: 0.2s;
+    .buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:30px;
     }
 
-    .btn-primary {
-      background: var(--blue);
-      color: white;
+    .btn{
+      padding:16px 26px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:bold;
+      transition:0.2s;
+      border:1px solid rgba(255,255,255,0.1);
     }
 
-    .btn-secondary {
-      color: white;
+    .btn-primary{
+      background:#2f80ff;
+      color:white;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .btn-secondary{
+      color:white;
+      background:transparent;
     }
 
-    .meta {
-      display: flex;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 14px;
-      flex-wrap: wrap;
+    .btn:hover{
+      transform:translateY(-2px);
     }
 
-    .photo-wrap {
-      border-radius: 28px;
-      padding: 8px;
-      background: linear-gradient(135deg, rgba(47,128,255,0.6), rgba(255,255,255,0.05));
+    .hero-info{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      color:#9aa4b2;
+      font-size:15px;
     }
 
-    .photo-wrap img {
-      width: 100%;
-      border-radius: 22px;
-      display: block;
+    .photo-box{
+      padding:10px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#2f80ff,rgba(255,255,255,0.05));
     }
 
-    section {
-      padding: 80px 0;
+    .photo-box img{
+      width:100%;
+      border-radius:22px;
+      display:block;
     }
 
-    h2 {
-      font-size: 52px;
-      margin-bottom: 16px;
+    section{
+      padding:100px 0;
+      border-top:1px solid rgba(255,255,255,0.06);
     }
 
-    .section-description {
-      color: var(--muted);
-      margin-bottom: 36px;
-      max-width: 760px;
+    h2{
+      font-size:58px;
+      margin-bottom:18px;
     }
 
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
+    .section-text{
+      color:#9aa4b2;
+      max-width:800px;
+      margin-bottom:45px;
+      font-size:18px;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+    .about-grid{
+      display:grid;
+      grid-template-columns:0.9fr 1.1fr;
+      gap:40px;
     }
 
-    .card,
-    .side-card,
-    .timeline-item,
-    .contact-box {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px;
+    .card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:32px;
     }
 
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 22px;
+    .fact{
+      padding:18px 0;
+      border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .card p {
-      color: var(--muted);
+    .fact:last-child{
+      border-bottom:none;
     }
 
-    .icon {
-      font-size: 28px;
-      margin-bottom: 18px;
+    .fact strong{
+      display:block;
+      margin-bottom:4px;
+      font-size:18px;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 32px;
+    .fact span{
+      color:#9aa4b2;
+      font-size:14px;
     }
 
-    .fact {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
+    .about-text p{
+      color:#9aa4b2;
+      margin-bottom:22px;
+      font-size:18px;
     }
 
-    .fact:last-child {
-      border-bottom: none;
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
     }
 
-    .fact strong {
-      display: block;
-      margin-bottom: 4px;
+    .service-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:28px;
     }
 
-    .fact span {
-      color: var(--muted);
-      font-size: 14px;
+    .service-card h3{
+      margin:16px 0 10px;
+      font-size:24px;
     }
 
-    .about-text p {
-      margin-bottom: 18px;
-      color: var(--muted);
+    .service-card p{
+      color:#9aa4b2;
+      font-size:15px;
     }
 
-    .timeline {
-      display: grid;
-      gap: 18px;
+    .icon{
+      font-size:34px;
     }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 28px;
+    .timeline{
+      display:grid;
+      gap:22px;
     }
 
-    .timeline-date {
-      color: var(--blue);
-      font-weight: bold;
+    .timeline-item{
+      display:grid;
+      grid-template-columns:180px 1fr;
+      gap:35px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      padding:30px;
     }
 
-    .timeline-item h4 {
-      color: var(--muted);
-      margin-bottom: 12px;
+    .timeline-date{
+      color:#2f80ff;
+      font-weight:bold;
     }
 
-    .timeline-item ul {
-      padding-left: 18px;
-      color: var(--muted);
+    .timeline-item h3{
+      font-size:28px;
+      margin-bottom:6px;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+    .timeline-item h4{
+      color:#9aa4b2;
+      margin-bottom:16px;
+      font-weight:normal;
     }
 
-    .skill {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight: bold;
+    .timeline-item ul{
+      padding-left:18px;
+      color:#9aa4b2;
     }
 
-    .contact-box {
-      text-align: center;
-      padding: 52px;
+    .timeline-item li{
+      margin-bottom:10px;
     }
 
-    .contact-box p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 28px;
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
     }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 32px 0;
-      text-align: center;
-      color: var(--muted);
+    .skill{
+      padding:14px 20px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.03);
+      font-weight:bold;
     }
 
-    @media(max-width: 900px) {
+    .contact-box{
+      text-align:center;
+      padding:60px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+    }
+
+    .contact-box p{
+      color:#9aa4b2;
+      max-width:700px;
+      margin:20px auto 35px;
+      font-size:18px;
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 0;
+      color:#9aa4b2;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:950px){
       .hero-grid,
       .about-grid,
-      .timeline-item {
-        grid-template-columns: 1fr;
+      .timeline-item{
+        grid-template-columns:1fr;
       }
 
-      .grid-4,
-      .grid-3 {
-        grid-template-columns: 1fr 1fr;
+      .services-grid{
+        grid-template-columns:1fr 1fr;
       }
 
-      h1 {
-        font-size: 52px;
+      h1{
+        font-size:64px;
       }
     }
 
-    @media(max-width: 620px) {
-      .grid-4,
-      .grid-3 {
-        grid-template-columns: 1fr;
+    @media(max-width:700px){
+      .services-grid{
+        grid-template-columns:1fr;
       }
 
-      h2 {
-        font-size: 40px;
+      h2{
+        font-size:42px;
+      }
+
+      .nav-links{
+        display:none;
       }
     }
   </style>
@@ -329,8 +354,10 @@
 <body>
 
 <nav>
-  <div class="container nav-inner">
-    <div class="logo">Lucas <span>Cucco</span></div>
+  <div class="container nav-content">
+    <div class="logo">
+      Lucas <span>Cucco</span>
+    </div>
 
     <div class="nav-links">
       <a href="#about">About</a>
@@ -344,17 +371,16 @@
 
 <section class="hero">
   <div class="container hero-grid">
-
     <div>
       <div class="eyebrow">
-        Data specialist & Excel automation support
+        Data Specialist & Excel Automation Support
       </div>
 
       <h1>
-        Hi, I’m <span class="highlight">Lucas Cucco</span>
+        Hi, I’m <span class="blue">Lucas Cucco</span>
       </h1>
 
-      <p class="hero-text">
+      <p>
         I help businesses save time, improve data accuracy and reduce repetitive manual work through Excel automation, reporting and practical data solutions.
       </p>
 
@@ -368,243 +394,267 @@
         </a>
       </div>
 
-      <div class="meta">
+      <div class="hero-info">
         <span>📍 London, United Kingdom</span>
         <span>🟢 Available for freelance work</span>
       </div>
     </div>
 
-    <div class="photo-wrap">
-      <img src="profile.jpeg" alt="Lucas Cucco">
+    <div class="photo-box">
+      <img src="profile photo.jpeg" alt="Lucas Cucco">
     </div>
-
   </div>
 </section>
 
 <section id="about">
-  <div class="container about-grid">
-
-    <div class="side-card">
-
-      <div class="eyebrow">About me</div>
-
-      <h2>A bit about me</h2>
-
-      <div class="fact">
-        <strong>Business Administration</strong>
-        <span>UFF, Rio de Janeiro</span>
-      </div>
-
-      <div class="fact">
-        <strong>Supply Chain Background</strong>
-        <span>MAN Energy Solutions, Brazil</span>
-      </div>
-
-      <div class="fact">
-        <strong>Based in London</strong>
-        <span>Originally from Rio de Janeiro</span>
-      </div>
-
-      <div class="fact">
-        <strong>Sports enthusiast</strong>
-        <span>Football, tennis and running</span>
-      </div>
-
+  <div class="container">
+    <div class="eyebrow">
+      About me
     </div>
 
-    <div class="about-text">
+    <h2>
+      My story
+    </h2>
 
-      <p>
-        I’m Lucas Cucco, originally from Rio de Janeiro and currently based in London, where I work in Master Data Management within the retail industry.
-      </p>
+    <div class="about-grid">
+      <div class="card">
+        <div class="fact">
+          <strong>Originally from Rio de Janeiro</strong>
+          <span>Currently based in London</span>
+        </div>
 
-      <p>
-        Before moving to the UK, I worked as a Supply Chain Intern at MAN Energy Solutions in Brazil. That was where I had my first professional experience working with Excel, SAP and operational data, which eventually sparked my interest in data processes and process improvement.
-      </p>
+        <div class="fact">
+          <strong>Business Administration Degree</strong>
+          <span>Universidade Federal Fluminense (UFF)</span>
+        </div>
 
-      <p>
-        After that experience, I decided to move to London to start a new chapter and challenge myself professionally and personally. While adapting to a new country, I completed my Business Administration degree remotely at Universidade Federal Fluminense (UFF) in Rio de Janeiro.
-      </p>
+        <div class="fact">
+          <strong>Supply Chain Background</strong>
+          <span>MAN Energy Solutions</span>
+        </div>
 
-      <p>
-        During that period, I also worked as a bartender to support myself financially while studying and building my life in the UK. Looking back, it was a very important experience that taught me resilience, communication and adaptability.
-      </p>
+        <div class="fact">
+          <strong>Voluntary Sports Marketing</strong>
+          <span>Barnes FC, London</span>
+        </div>
 
-      <p>
-        Today, I work with SAP S/4HANA, Excel automation, data validation, reconciliation and process improvement. I enjoy finding practical ways to make workflows cleaner, faster and more reliable.
-      </p>
+        <div class="fact">
+          <strong>Sports enthusiast</strong>
+          <span>Football, tennis and running</span>
+        </div>
+      </div>
 
-      <p>
-        Outside work, I enjoy watching sports, especially football. I support Flamengo in Brazil, and in my free time I also enjoy playing football, tennis and going for runs from time to time.
-      </p>
+      <div class="about-text">
+        <p>
+          I’m Lucas Cucco, originally from Rio de Janeiro and currently based in London, where I work in Master Data Management within the retail industry.
+        </p>
 
+        <p>
+          Before moving to the UK, I worked as a Supply Chain Intern at MAN Energy Solutions in Brazil. That was where I had my first professional experience working with Excel, SAP and operational data, which eventually sparked my interest in data processes and process improvement.
+        </p>
+
+        <p>
+          After that experience, I decided to move to London to start a new chapter and challenge myself professionally and personally. While adapting to a new country, I completed my Business Administration degree remotely at Universidade Federal Fluminense (UFF) in Rio de Janeiro.
+        </p>
+
+        <p>
+          During that period, I also worked as a bartender to support myself financially while studying and building my life in the UK. Looking back, it was a very important experience that taught me resilience, communication and adaptability.
+        </p>
+
+        <p>
+          Alongside my studies and work, I also volunteered with Barnes FC in London, supporting sports marketing activities, social media content, photography and club campaigns. It was a valuable experience that helped me understand how content, community and communication work in a real sports environment.
+        </p>
+
+        <p>
+          Today, I work with SAP S/4HANA, Excel automation, data validation, reconciliation and process improvement. I enjoy finding practical ways to make workflows cleaner, faster and more reliable.
+        </p>
+
+        <p>
+          Outside work, I enjoy watching sports, especially football. I support Flamengo in Brazil, and in my free time I also enjoy playing football, tennis and going for runs from time to time.
+        </p>
+      </div>
     </div>
-
   </div>
 </section>
 
 <section id="services">
-
   <div class="container">
-
-    <div class="eyebrow">What I do</div>
-
-    <h2>How I can help</h2>
-
-    <p class="section-description">
-      Practical support for businesses that need cleaner data, better spreadsheets and less manual work.
-    </p>
-
-    <div class="grid-4">
-
-      <div class="card">
-        <div class="icon">📊</div>
-        <h3>Excel Automation</h3>
-        <p>Automate repetitive tasks and improve spreadsheet workflows.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🧹</div>
-        <h3>Data Cleaning</h3>
-        <p>Clean and organise Excel, CSV and operational datasets.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">📈</div>
-        <h3>Reports & Dashboards</h3>
-        <p>Create reports that help teams make better decisions.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🗂️</div>
-        <h3>Master Data Support</h3>
-        <p>Support with validation, reconciliation and product data tasks.</p>
-      </div>
-
+    <div class="eyebrow">
+      What I do
     </div>
 
-  </div>
+    <h2>
+      How I can help
+    </h2>
 
+    <p class="section-text">
+      Practical support for businesses that need cleaner data, better spreadsheets and less manual operational work.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">📊</div>
+        <h3>Excel Automation</h3>
+        <p>Automating repetitive spreadsheets and operational tasks.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📈</div>
+        <h3>Reporting</h3>
+        <p>Creating reports and dashboards for better visibility.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🧹</div>
+        <h3>Data Cleaning</h3>
+        <p>Cleaning, validating and organising datasets.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">⚙️</div>
+        <h3>Process Improvement</h3>
+        <p>Improving operational workflows and reducing manual effort.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="experience">
-
   <div class="container">
+    <div class="eyebrow">
+      Experience
+    </div>
 
-    <div class="eyebrow">Experience</div>
+    <h2>
+      Professional experience
+    </h2>
 
-    <h2>Professional experience</h2>
-
-    <p class="section-description">
-      My background combines master data, supply chain and process improvement.
+    <p class="section-text">
+      Background combining supply chain, operational processes, master data management and sports marketing experience.
     </p>
 
     <div class="timeline">
-
       <div class="timeline-item">
-
         <div class="timeline-date">
           Aug 2024 — Present
         </div>
 
         <div>
-          <h3>Master Data Management Executive</h3>
-          <h4>Lacoste · London</h4>
+          <h3>
+            Master Data Management Executive
+          </h3>
+
+          <h4>
+            Lacoste · London
+          </h4>
 
           <ul>
-            <li>Manage and validate large datasets in SAP S/4HANA.</li>
-            <li>Perform reconciliation and integrity checks across systems.</li>
-            <li>Build Excel tools and automations to improve workflows.</li>
-            <li>Support data quality and operational efficiency.</li>
+            <li>Managing and validating large datasets in SAP S/4HANA.</li>
+            <li>Building Excel tools and automations for operational workflows.</li>
+            <li>Performing reconciliation and integrity checks across systems.</li>
+            <li>Supporting process improvement and data quality initiatives.</li>
           </ul>
         </div>
-
       </div>
 
       <div class="timeline-item">
+        <div class="timeline-date">
+          Oct 2022 — Apr 2024
+        </div>
 
+        <div>
+          <h3>
+            Sports Marketing Volunteer
+          </h3>
+
+          <h4>
+            Barnes FC · London
+          </h4>
+
+          <ul>
+            <li>Supported the club with social media content and campaign promotion.</li>
+            <li>Took photos for club activities, matches and community-related content.</li>
+            <li>Gained practical experience in sports marketing, content creation and community engagement.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
         <div class="timeline-date">
           Jul 2019 — Jul 2021
         </div>
 
         <div>
-          <h3>Supply Chain Intern</h3>
-          <h4>MAN Energy Solutions · Rio de Janeiro</h4>
+          <h3>
+            Supply Chain Intern
+          </h3>
+
+          <h4>
+            MAN Energy Solutions · Rio de Janeiro
+          </h4>
 
           <ul>
-            <li>Created and maintained material master data in SAP.</li>
-            <li>Generated Excel reports for operational processes.</li>
-            <li>Improved visibility and consistency of supply chain data.</li>
+            <li>Created and maintained material data in SAP.</li>
+            <li>Worked with Excel reporting and operational processes.</li>
+            <li>Supported supply chain activities and internal data organisation.</li>
           </ul>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <section id="skills">
-
   <div class="container">
-
-    <div class="eyebrow">Skills & tools</div>
-
-    <h2>Skills and tools I use</h2>
-
-    <div class="skills">
-
-      <span class="skill">Excel Advanced</span>
-      <span class="skill">Excel Macros</span>
-      <span class="skill">SAP S/4HANA</span>
-      <span class="skill">Data Analysis</span>
-      <span class="skill">Data Validation</span>
-      <span class="skill">Data Reconciliation</span>
-      <span class="skill">SQL</span>
-      <span class="skill">Power BI</span>
-      <span class="skill">Process Improvement</span>
-      <span class="skill">Stakeholder Management</span>
-      <span class="skill">Portuguese Native</span>
-      <span class="skill">English Fluent</span>
-
+    <div class="eyebrow">
+      Skills & Tools
     </div>
 
-  </div>
+    <h2>
+      Skills and tools I use
+    </h2>
 
+    <div class="skills">
+      <div class="skill">Excel Advanced</div>
+      <div class="skill">Excel Macros</div>
+      <div class="skill">SAP S/4HANA</div>
+      <div class="skill">Data Analysis</div>
+      <div class="skill">Data Validation</div>
+      <div class="skill">Data Reconciliation</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Power BI</div>
+      <div class="skill">Process Improvement</div>
+      <div class="skill">Stakeholder Management</div>
+      <div class="skill">Social Media Content</div>
+      <div class="skill">Sports Marketing</div>
+      <div class="skill">Portuguese Native</div>
+      <div class="skill">English Fluent</div>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-
   <div class="container">
-
     <div class="contact-box">
+      <div class="eyebrow">
+        Let’s work together
+      </div>
 
-      <div class="eyebrow">Let’s work together</div>
-
-      <h2>Have a project in mind?</h2>
+      <h2>
+        Have a project in mind?
+      </h2>
 
       <p>
-        Feel free to get in touch if you need help with Excel, data cleaning, automation or process improvement.
+        Feel free to contact me if you need support with Excel automation, reporting, operational data or process improvement.
       </p>
 
-      <div class="buttons" style="justify-content:center; margin-bottom:0;">
-
+      <div class="buttons" style="justify-content:center;">
         <a href="mailto:lucasregua@gmail.com" class="btn btn-primary">
           Email me
         </a>
-
-        <a href="https://www.linkedin.com" class="btn btn-secondary">
-          Connect on LinkedIn
-        </a>
-
       </div>
-
     </div>
-
   </div>
-
 </section>
 
 <footer>
@@ -613,3 +663,4 @@
 
 </body>
 </html>
+
