@@ -283,6 +283,70 @@
       margin-bottom:10px;
     }
 
+    .timeline-link{
+      color:inherit;
+      text-decoration:none;
+      position:relative;
+      border-color:rgba(47,128,255,0.35);
+      background:linear-gradient(135deg,rgba(47,128,255,0.10),rgba(255,255,255,0.02));
+      transition:transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .timeline-link:hover{
+      transform:translateY(-3px);
+      border-color:#2f80ff;
+      box-shadow:0 18px 50px rgba(47,128,255,0.18);
+    }
+
+    .case-badge{
+      display:inline-block;
+      margin-top:12px;
+      padding:5px 12px;
+      border-radius:999px;
+      background:rgba(47,128,255,0.15);
+      border:1px solid rgba(47,128,255,0.4);
+      color:#8fb8ff;
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .mini-stats{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin:22px 0 18px;
+    }
+
+    .mini-stats div{
+      padding:12px 18px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      min-width:120px;
+    }
+
+    .mini-stats strong{
+      display:block;
+      font-size:24px;
+      color:white;
+      line-height:1.2;
+    }
+
+    .mini-stats span{
+      color:#9aa4b2;
+      font-size:13px;
+    }
+
+    .read-more{
+      color:#2f80ff;
+      font-weight:bold;
+    }
+
+    .timeline-link:hover .read-more{
+      text-decoration:underline;
+    }
+
     .skills{
       display:flex;
       flex-wrap:wrap;
@@ -558,6 +622,39 @@
         </div>
       </div>
 
+      <a href="barnes-fc.html" class="timeline-item timeline-link" aria-label="Barnes FC — read the case study">
+        <div class="timeline-date">
+          Jul 2023 — Oct 2024
+          <span class="case-badge">Case study</span>
+        </div>
+
+        <div>
+          <h3>
+            Volunteer Marketing Manager
+          </h3>
+
+          <h4>
+            Barnes FC · London
+          </h4>
+
+          <ul>
+            <li>Ran the club’s Instagram end to end: matchday photography, graphic design, copywriting and publishing.</li>
+            <li>Grew followers from ~500 to ~1,300 in 12 months through organic content only.</li>
+            <li>Raised average likes per post by 28% while posting 64% more often, more than doubling monthly engagement.</li>
+            <li>Led the social campaign for a women’s team fundraiser: 70 donors against a target of 50, raising £7,260.</li>
+            <li>Analysed 356 posts across two seasons to measure the impact of the content strategy.</li>
+          </ul>
+
+          <div class="mini-stats">
+            <div><strong>2.6x</strong><span>followers</span></div>
+            <div><strong>+28%</strong><span>likes per post</span></div>
+            <div><strong>£7,260</strong><span>raised for women’s team</span></div>
+          </div>
+
+          <span class="read-more">Read the case study →</span>
+        </div>
+      </a>
+
       <div class="timeline-item">
         <div class="timeline-date">
           Jul 2019 — Jul 2021
@@ -579,8 +676,8 @@
           </ul>
         </div>
       </div>
-
-      
+    </div>
+  </div>
 </section>
 
 <section id="skills">
@@ -607,6 +704,10 @@
       <div class="skill">Stakeholder Management</div>
       <div class="skill">Basic SQL</div>
       <div class="skill">Basic Power BI</div>
+      <div class="skill">Social Media Management</div>
+      <div class="skill">Content Strategy</div>
+      <div class="skill">Sports Photography</div>
+      <div class="skill">Graphic Design</div>
       <div class="skill">Portuguese Native</div>
       <div class="skill">English Fluent</div>
     </div>
