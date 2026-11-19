@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lacoste | Lucas Cucco</title>
+  <title>Product Data Quality at Lacoste | Lucas Cucco</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <meta name="description" content="How I kept Lacoste Footwear's material master data in SAP S/4HANA aligned with the PLM, built Excel reconciliation templates and a one-click validation macro.">
+  <meta name="description" content="Product data quality and process improvement at Lacoste: SAP–PLM reconciliation, Excel validation macros and seasonal product readiness for the London footwear operation.">
 
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; }
@@ -200,11 +200,12 @@
 
 <header class="hero">
   <div class="container">
-    <div class="eyebrow">Experience · Lacoste</div>
-    <h1>Keeping Lacoste’s product data <span class="blue">right</span>, from PLM to SAP</h1>
+    <div class="eyebrow">Case study · Lacoste</div>
+    <h1>Product data quality &amp; process improvement at <span class="blue">Lacoste</span></h1>
     <p class="lead">
-      I joined Lacoste’s Footwear office in London in August 2024 as Master Data Management Executive. It was a fantastic period
-      for me. I was responsible for all footwear material master data in SAP S/4HANA, and built the tools that kept it aligned with the PLM.
+      As a Master Data Management Executive in Lacoste’s London footwear operation, I managed product data in SAP S/4HANA and
+      supported seasonal product readiness. My work combined material creation and maintenance, SAP–DeSL PLM reconciliation,
+      Excel automation and coordination with teams across London, Paris and Asia.
     </p>
     <div class="meta">
       <span class="chip">Master Data Management Executive</span>
@@ -215,77 +216,49 @@
 
     <div class="kpis">
       <div class="kpi"><strong>All footwear materials</strong><span>Responsible for their master data in SAP</span></div>
-      <div class="kpi"><strong>SAP ↔ PLM</strong><span>Regular, field-by-field reconciliation I built in Excel</span></div>
-      <div class="kpi"><strong>30 min → seconds</strong><span>Validation task automated with an Excel macro</span></div>
-      <div class="kpi"><strong>London · Paris · Asia</strong><span>Teams I worked with every week</span></div>
+      <div class="kpi"><strong>SAP ↔ PLM</strong><span>Reconciliation templates I built in Excel</span></div>
+      <div class="kpi"><strong>2 macros</strong><span>Automated checks before SAP uploads, run in seconds</span></div>
+      <div class="kpi"><strong>London · Paris · Asia</strong><span>Teams I worked with to resolve data issues</span></div>
     </div>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <div class="eyebrow">The role</div>
-    <h2>What I was responsible for</h2>
-    <p class="section-text">Two systems had to tell the same story: the PLM, where products are designed and changed, and SAP, where they are bought, priced and sold.</p>
-
-    <div class="two-col">
-      <div class="card">
-        <div class="icon">🧩</div>
-        <h3>Material master data</h3>
-        <ul>
-          <li>Created materials in SAP S/4HANA.</li>
-          <li>Responsible for all footwear material information in SAP.</li>
-          <li>Made sure SAP always matched the DeSL PLM, even when product details changed in the PLM.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="icon">💷</div>
-        <h3>Pricing in the buy phase</h3>
-        <ul>
-          <li>Priced materials during the buy phase.</li>
-          <li>Ran cost runs in SAP.</li>
-          <li>Linked each material to the correct supplier, using the finance team’s margin document.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="eyebrow">What I built · 1</div>
-    <h2>An SAP vs PLM reconciliation template</h2>
+    <div class="eyebrow">01 · Data quality</div>
+    <h2>Keeping SAP and PLM aligned</h2>
     <p class="section-text">
-      I built Excel templates that compare SAP and PLM data field by field. They made the checks fast enough to run
-      regularly, so any mismatch was caught straight away.
+      I built Excel reconciliation templates using XLOOKUP and EXACT to compare product attributes exported from SAP and PLM.
+      These checks helped identify inconsistent values and products requiring a status review. Before making changes in SAP,
+      I confirmed discrepancies with the responsible team.
     </p>
 
     <div class="flow">
       <div class="step">
         <div class="n">01</div>
         <h4>Export from SAP</h4>
-        <p>Material data downloaded into one tab.</p>
+        <p>Product attributes downloaded into one tab.</p>
       </div>
       <div class="step">
         <div class="n">02</div>
         <h4>Export from PLM</h4>
-        <p>The same fields from the DeSL PLM in a second tab.</p>
+        <p>The same attributes from the DeSL PLM in a second tab.</p>
       </div>
       <div class="step key">
         <div class="n">03</div>
-        <h4>Compare field by field</h4>
-        <p>Formulas match each material and check every value.</p>
+        <h4>Compare attribute by attribute</h4>
+        <p>Formulas match each product and check every value.</p>
         <span class="code">XLOOKUP · EXACT</span>
       </div>
       <div class="step">
         <div class="n">04</div>
-        <h4>Flag mismatches</h4>
-        <p>Anything out of line is highlighted instantly.</p>
+        <h4>Flag issues</h4>
+        <p>Inconsistent values and products needing a status review.</p>
       </div>
       <div class="step">
         <div class="n">05</div>
-        <h4>Confirm and correct</h4>
-        <p>I contacted the responsible team to confirm the right value, then updated SAP.</p>
+        <h4>Confirm, then correct</h4>
+        <p>Discrepancies confirmed with the responsible team before any change in SAP.</p>
       </div>
     </div>
   </div>
@@ -293,24 +266,72 @@
 
 <section>
   <div class="container">
-    <div class="eyebrow">What I built · 2</div>
-    <h2>A one-click validation macro</h2>
+    <div class="eyebrow">02 · Automation</div>
+    <h2>Automating pre-upload validation</h2>
     <p class="section-text">
-      Before uploading new materials from the PLM into SAP, every material had to pass a validation check. I wrote an
-      Excel macro that runs the whole check at once, so a clean batch could go straight to upload.
+      I developed two Excel macros to validate product planning data and material upload templates, so problems were caught
+      before anything reached SAP.
     </p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="icon">✅</div>
+        <h3>What the checks covered</h3>
+        <ul>
+          <li>Mandatory fields.</li>
+          <li>Description lengths.</li>
+          <li>Consistency between related attributes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">📋</div>
+        <h3>Focus on the exceptions</h3>
+        <p>A summary counted issues by field, so I could filter the affected records and focus on the exceptions that needed investigation or correction.</p>
+      </div>
+    </div>
 
     <div class="ba">
       <div class="box">
         <div class="label">Before</div>
         <strong>Around 30 minutes</strong>
-        <p>A manual validation whose time varied with the size of each batch.</p>
+        <p>My estimate for the manual validation, depending on the size of the batch.</p>
       </div>
       <div class="arrow">→</div>
       <div class="box after">
         <div class="label">After</div>
-        <strong>A few seconds</strong>
-        <p>One click: the macro validates the full batch and confirms it is ready to upload to SAP.</p>
+        <strong>Seconds</strong>
+        <p>The automated checks ran in seconds. Reviewing exceptions and resolving issues remained separate steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">03 · Seasonal readiness</div>
+    <h2>Preparing new and carryover products for each season</h2>
+    <p class="section-text">
+      Each season, I prepared both new and carryover products in SAP.
+    </p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="icon">🆕</div>
+        <h3>New products</h3>
+        <ul>
+          <li>Created new materials in SAP S/4HANA.</li>
+          <li>Kept their data aligned with the DeSL PLM.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">🔁</div>
+        <h3>Carryover products</h3>
+        <ul>
+          <li>Reviewed existing products carried over to the current season.</li>
+          <li>Updated product status and buying-phase information.</li>
+          <li>Confirmed vendor assignments with the Asia team.</li>
+          <li>Applied pricing updates supplied by Finance.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -374,9 +395,9 @@
 
 <section>
   <div class="container">
-    <div class="eyebrow">Collaboration</div>
-    <h2>Who I worked with</h2>
-    <p class="section-text">Keeping the data right meant working closely with teams across the business and across countries.</p>
+    <div class="eyebrow">04 · Collaboration</div>
+    <h2>Working across teams</h2>
+    <p class="section-text">I worked with PLM, buying, merchandising, finance and regional teams to resolve missing or inconsistent information before processing updates in SAP.</p>
 
     <div class="teams">
       <div class="team">PLM team</div>
