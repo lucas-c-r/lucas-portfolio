@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lucas Cucco | SAP Master Data Portfolio</title>
+  <title>Lucas Cucco | Data Operations & Master Data</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -435,10 +435,195 @@
         font-size:42px;
       }
 
+      .nav-content{
+        flex-wrap:wrap;
+        gap:10px;
+        padding:14px 0;
+      }
+
       .nav-links{
-        display:none;
+        width:100%;
+        gap:18px;
+        overflow-x:auto;
+        white-space:nowrap;
+        padding-bottom:2px;
+      }
+
+      h1{
+        font-size:52px;
+      }
+
+      .hero{
+        min-height:auto;
       }
     }
+    /* Hero line + links */
+    .hero-line{
+      color:#5c6370;
+      font-size:15px;
+      font-weight:500;
+    }
+
+    .hero-line a{
+      color:#0b6b57;
+      font-weight:bold;
+      text-decoration:none;
+    }
+
+    .hero-line a:hover{
+      text-decoration:underline;
+    }
+
+    /* Selected projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .project-card{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding:34px;
+      border-radius:28px;
+      background:#ffffff;
+      border:1px solid #e4ded3;
+      color:inherit;
+      text-decoration:none;
+      transition:transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      box-shadow:0 1px 2px rgba(21,24,29,0.04), 0 8px 24px rgba(21,24,29,0.05);
+    }
+
+    .project-card:hover{
+      transform:translateY(-4px);
+      border-color:#0b6b57;
+      box-shadow:0 18px 50px rgba(11,107,87,0.16);
+    }
+
+    .project-tag{
+      color:#0b6b57;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    .project-card h3{
+      font-size:30px;
+      line-height:1.15;
+    }
+
+    .project-card p{
+      color:#5c6370;
+      font-size:16px;
+    }
+
+    .project-stats{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:4px;
+    }
+
+    .project-stats div{
+      padding:10px 16px;
+      border-radius:14px;
+      background:#faf8f4;
+      border:1px solid #e4ded3;
+    }
+
+    .project-stats strong{
+      display:block;
+      font-size:20px;
+      line-height:1.2;
+    }
+
+    .project-stats span{
+      color:#5c6370;
+      font-size:12px;
+    }
+
+    .project-link{
+      margin-top:auto;
+      padding-top:8px;
+      color:#0b6b57;
+      font-weight:bold;
+    }
+
+    .project-card:hover .project-link{
+      text-decoration:underline;
+    }
+
+    .role-note{
+      color:#8a8f98;
+      font-size:14px;
+      margin-top:4px;
+    }
+
+    .timeline-meta{
+      display:block;
+      color:#8a8f98;
+      font-size:13px;
+      font-weight:normal;
+      margin-top:6px;
+    }
+
+    /* Skill groups */
+    .skill-groups{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .skill-group{
+      background:#ffffff;
+      border:1px solid #e4ded3;
+      border-radius:24px;
+      padding:28px;
+      box-shadow:0 1px 2px rgba(21,24,29,0.04), 0 8px 24px rgba(21,24,29,0.05);
+    }
+
+    .skill-group h3{
+      font-size:21px;
+      margin-bottom:6px;
+    }
+
+    .skill-group > p{
+      color:#5c6370;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .skill-group .skills{
+      gap:10px;
+    }
+
+    .skill-group .skill{
+      padding:8px 14px;
+      font-size:14px;
+      font-weight:600;
+      background:#faf8f4;
+      box-shadow:none;
+    }
+
+    .languages{
+      margin-top:26px;
+      color:#5c6370;
+      font-size:16px;
+    }
+
+    .languages strong{
+      color:#15181d;
+    }
+
+    @media(max-width:950px){
+      .projects-grid,
+      .skill-groups{
+        grid-template-columns:1fr;
+      }
+    }
+
     /* Theme polish */
     body{ -webkit-font-smoothing:antialiased; }
     h1, h2{ letter-spacing:-0.03em; }
@@ -456,21 +641,21 @@
 
 <nav>
   <div class="container nav-content">
-    <div class="logo">
+    <a href="#top" class="logo" style="color:inherit;text-decoration:none;">
       Lucas <span>Cucco</span>
-    </div>
+    </a>
 
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="container hero-grid">
     <div>
       <a href="#contact" class="open-badge"><span class="dot"></span>Open to Data Operations roles</a>
@@ -484,23 +669,21 @@
       </h1>
 
       <p>
-        Data professional with hands-on experience in SAP S/4HANA, master data, data quality and process improvement. I keep operational data accurate and reliable across systems, and build tools that make the work faster.
+        I’m a London-based data professional with nearly two years of experience managing footwear product data at Lacoste. I use SAP S/4HANA and Excel to keep data consistent across systems and reduce manual work, while developing my SQL and Power BI skills through personal projects.
       </p>
 
       <div class="buttons">
-        <a href="mailto:lucasregua@gmail.com" class="btn btn-primary">
-          Get in touch
+        <a href="#projects" class="btn btn-primary">
+          View my projects
         </a>
 
-        <a href="#experience" class="btn btn-secondary">
-          View experience
+        <a href="#contact" class="btn btn-secondary">
+          Get in touch
         </a>
       </div>
 
-      <div class="hero-info">
-        <span>📍 London, United Kingdom</span>
-        <span>📊 SAP S/4HANA & Master Data Management</span>
-        <span>🎓 MSc Sport Management & Marketing, Birkbeck (part-time)</span>
+      <div class="hero-line">
+        London, UK · UK Settled Status · Available immediately · <a href="https://www.linkedin.com/in/lucas-cucco-regua/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
 
@@ -510,125 +693,42 @@
   </div>
 </section>
 
-<section id="about">
+<section id="projects">
   <div class="container">
     <div class="eyebrow">
-      About me
+      Selected projects
     </div>
 
     <h2>
-      My story
-    </h2>
-
-    <div class="about-grid">
-      <div class="card">
-        <div class="fact">
-          <strong>Originally from Rio de Janeiro</strong>
-          <span>Currently based in London</span>
-        </div>
-
-        <div class="fact">
-          <strong>UK Settled Status</strong>
-          <span>No visa sponsorship needed · Available immediately</span>
-        </div>
-
-        <div class="fact">
-          <strong>MSc Sport Management and Marketing</strong>
-          <span>Birkbeck, University of London · Part-time, in progress</span>
-        </div>
-
-        <div class="fact">
-          <strong>Business Administration Degree</strong>
-          <span>Universidade Federal Fluminense (UFF)</span>
-        </div>
-
-        <div class="fact">
-          <strong>SAP & Master Data</strong>
-          <span>SAP S/4HANA, ERP data and data quality</span>
-        </div>
-
-        <div class="fact">
-          <strong>Supply Chain Background</strong>
-          <span>MAN Energy Solutions</span>
-        </div>
-
-        <div class="fact">
-          <strong>Sports enthusiast</strong>
-          <span>Football, tennis and running</span>
-        </div>
-      </div>
-
-      <div class="about-text">
-        <p>
-          I’m a Brazilian data professional based in London, with nearly two years of experience in Master Data Management at Lacoste. I hold a bachelor’s degree in Business Administration from Universidade Federal Fluminense (UFF), one of Brazil’s leading universities.
-        </p>
-
-        <p>
-          At Lacoste, I managed product data in SAP S/4HANA, kept it consistent with the PLM, and worked with colleagues across buying, merchandising, finance and operations in London, Paris and Asia. One of my favourite achievements was an Excel macro that cut a validation task from around 30 minutes to a few seconds.
-        </p>
-
-        <p>
-          My role was made redundant when Lacoste closed its London office, and my last day was 30 June 2026. Since then, I have been strengthening my profile, developing my SQL and Power BI skills through personal projects alongside my strengths in Excel, data validation and process improvement.
-        </p>
-
-        <p>
-          I’m looking for opportunities in Data Operations, Master Data, Product Data and Data Quality, as well as junior Data Analyst roles, especially in retail and sport.
-        </p>
-
-        <p>
-          I’m also studying part-time for an MSc in Sport Management and Marketing at Birkbeck, University of London. Sport has always been a big part of my life, particularly football, and I’m interested in how data can help organisations understand their performance and make better decisions.
-        </p>
-
-        <p>
-          My first experience with SAP and operational data was as a Supply Chain Intern at MAN Energy Solutions in Rio de Janeiro. After moving to London, I also worked in hospitality while finishing my degree, which taught me resilience and communication in a fast-paced environment.
-        </p>
-
-        <p>
-          I have UK Settled Status, so I don’t need visa sponsorship, and I’m available immediately. I’m keen to join a team where I can contribute, keep learning and grow my career in data.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="eyebrow">
-      What I do
-    </div>
-
-    <h2>
-      How I add value
+      Work I’m proud of
     </h2>
 
     <p class="section-text">
-      Practical support across SAP master data, data quality, reconciliation, process improvement and operational reporting.
+      Two in-depth case studies: one from my work in product data, one from my work in sports content.
     </p>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="icon">🧩</div>
-        <h3>Master Data Management</h3>
-        <p>Supporting accurate and reliable master data across business systems.</p>
-      </div>
+    <div class="projects-grid">
+      <a href="lacoste.html" class="project-card">
+        <div class="project-tag">Lacoste · Product data &amp; automation</div>
+        <h3>Keeping footwear product data aligned across SAP and PLM</h3>
+        <p>Maintaining footwear product data across SAP and PLM, with Excel tools for reconciliation and validation.</p>
+        <div class="project-stats">
+          <div><strong>~30 min → seconds</strong><span>validation before SAP upload</span></div>
+          <div><strong>SAP ↔ PLM</strong><span>field-by-field reconciliation</span></div>
+        </div>
+        <span class="project-link">View case study →</span>
+      </a>
 
-      <div class="service-card">
-        <div class="icon">✅</div>
-        <h3>Data Validation</h3>
-        <p>Performing reconciliation and integrity checks across systems.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">⚙️</div>
-        <h3>SAP & ERP Data</h3>
-        <p>Managing operational and product-related data within ERP environments.</p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">📊</div>
-        <h3>Process Improvement</h3>
-        <p>Using Excel automation and structured checks to reduce manual work and improve data reliability.</p>
-      </div>
+      <a href="barnes-fc.html" class="project-card">
+        <div class="project-tag">Barnes FC · Content &amp; performance analysis</div>
+        <h3>Growing a grassroots club’s Instagram with organic content</h3>
+        <p>Creating football content and analysing 356 Instagram posts to compare performance before and during my management.</p>
+        <div class="project-stats">
+          <div><strong>+28%</strong><span>average likes per post</span></div>
+          <div><strong>£7,260</strong><span>raised for a women’s team</span></div>
+        </div>
+        <span class="project-link">View case study →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -644,14 +744,14 @@
     </h2>
 
     <p class="section-text">
-      Background combining master data management, SAP S/4HANA, supply chain, operational processes and stakeholder communication.
+      Master data, SAP S/4HANA and supply chain experience, plus volunteer work in sports content.
     </p>
 
     <div class="timeline">
-      <a href="lacoste.html" class="timeline-item timeline-link" aria-label="Lacoste — read more about this role">
+      <a href="lacoste.html" class="timeline-item timeline-link" aria-label="Lacoste — read the case study">
         <div class="timeline-date">
           Aug 2024 — Jun 2026
-          <span class="case-badge">Read more</span>
+          <span class="case-badge">Case study</span>
         </div>
 
         <div>
@@ -664,21 +764,21 @@
           </h4>
 
           <ul>
-            <li>Owned all of Lacoste’s material data in SAP S/4HANA, creating materials and keeping them aligned with the DeSL PLM.</li>
-            <li>Built Excel reconciliation templates (XLOOKUP, EXACT) comparing SAP and PLM field by field, so mismatches were caught straight away.</li>
-            <li>Wrote an Excel macro that cut the validation before SAP uploads from around 30 minutes to a few seconds.</li>
-            <li>Priced materials in the buy phase, running cost runs and linking materials to the correct suppliers using finance’s margin document.</li>
-            <li>Worked with PLM, developers, buying, merchandising, customer operations, finance, and teams in Paris and Asia.</li>
-            <li>Role made redundant in June 2026 following the closure of Lacoste’s London office.</li>
+            <li>Managed footwear material master data in SAP S/4HANA for Lacoste’s London footwear operation, keeping it aligned with the DeSL PLM.</li>
+            <li>Built Excel reconciliation templates and a validation macro that cut a pre-upload check from around 30 minutes to a few seconds.</li>
+            <li>Priced materials in the buy phase and worked with buying, merchandising, finance and teams in Paris and Asia.</li>
           </ul>
 
-          <span class="read-more">Read more about this role →</span>
+          <p class="role-note">Role ended in June 2026 following the closure of the London office.</p>
+
+          <span class="read-more">Read the case study →</span>
         </div>
       </a>
 
       <a href="barnes-fc.html" class="timeline-item timeline-link" aria-label="Barnes FC — read the case study">
         <div class="timeline-date">
           Jul 2023 — Oct 2024
+          <span class="timeline-meta">Instagram: Aug 2023 – Aug 2024</span>
           <span class="case-badge">Case study</span>
         </div>
 
@@ -692,19 +792,10 @@
           </h4>
 
           <ul>
-            <li>Managed the club’s social media from Aug 2023 to Aug 2024, creating 90%+ of all posts: matchday photography, graphic design, copywriting and publishing, plus news on the club website.</li>
-            <li>Shot every match on a borrowed camera I had never used before, and taught myself Photoshop and Canva to design all matchday graphics.</li>
-            <li>Grew followers from ~500 to ~1,300 in 12 months through organic content only.</li>
-            <li>Raised average likes per post by 28% while posting 64% more often, more than doubling monthly engagement.</li>
-            <li>Led the social campaign for a women’s team fundraiser: 70 donors against a target of 50, raising £7,260.</li>
-            <li>Analysed 356 posts across two seasons to measure the impact of the content strategy.</li>
+            <li>Managed the club’s Instagram from Aug 2023 to Aug 2024, creating 90%+ of posts: matchday photography, graphic design and copywriting.</li>
+            <li>Followers grew from roughly 500 to 1,300 and average likes per post rose 28%, with no paid promotion.</li>
+            <li>Led the social media campaign supporting a women’s team fundraiser, which raised £7,260 from 70 donors against a target of 50.</li>
           </ul>
-
-          <div class="mini-stats">
-            <div><strong>2.6x</strong><span>followers</span></div>
-            <div><strong>+28%</strong><span>likes per post</span></div>
-            <div><strong>£7,260</strong><span>raised for women’s team</span></div>
-          </div>
 
           <span class="read-more">Read the case study →</span>
         </div>
@@ -735,6 +826,56 @@
   </div>
 </section>
 
+<section id="about">
+  <div class="container">
+    <div class="eyebrow">
+      About me
+    </div>
+
+    <h2>
+      My story
+    </h2>
+
+    <div class="about-grid">
+      <div class="card">
+        <div class="fact">
+          <strong>Originally from Rio de Janeiro</strong>
+          <span>Based in London</span>
+        </div>
+
+        <div class="fact">
+          <strong>Business Administration Degree</strong>
+          <span>Universidade Federal Fluminense (UFF)</span>
+        </div>
+
+        <div class="fact">
+          <strong>MSc Sport Management and Marketing</strong>
+          <span>Birkbeck, University of London · Part-time, in progress</span>
+        </div>
+
+        <div class="fact">
+          <strong>Sports enthusiast</strong>
+          <span>Football, tennis and running</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <p>
+          I’m a Brazilian data professional based in London. I hold a bachelor’s degree in Business Administration from Universidade Federal Fluminense (UFF), one of Brazil’s leading universities, and I first worked with SAP and operational data as a Supply Chain Intern at MAN Energy Solutions in Rio de Janeiro.
+        </p>
+
+        <p>
+          At Lacoste, I spent nearly two years managing footwear product data in SAP S/4HANA and keeping it consistent with the PLM. One of my favourite achievements was an Excel macro that cut a validation task from around 30 minutes to a few seconds.
+        </p>
+
+        <p>
+          I’m now developing my SQL and Power BI skills through personal projects. I’m also studying part-time for an MSc in Sport Management and Marketing at Birkbeck. Sport, especially football, has always been a big part of my life, and I’m interested in how data helps organisations understand their performance and make better decisions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="skills">
   <div class="container">
     <div class="eyebrow">
@@ -742,32 +883,56 @@
     </div>
 
     <h2>
-      Skills and tools I use
+      Skills and tools
     </h2>
 
-    <div class="skills">
-      <div class="skill">SAP S/4HANA</div>
-      <div class="skill">Master Data Management</div>
-      <div class="skill">Data Quality</div>
-      <div class="skill">Data Validation</div>
-      <div class="skill">Data Reconciliation</div>
-      <div class="skill">Product Master Data</div>
-      <div class="skill">Pricing Data</div>
-      <div class="skill">Excel Advanced</div>
-      <div class="skill">Excel Macros</div>
-      <div class="skill">Process Improvement</div>
-      <div class="skill">Stakeholder Management</div>
-      <div class="skill">Basic SQL</div>
-      <div class="skill">Basic Power BI</div>
-      <div class="skill">Social Media Management</div>
-      <div class="skill">Content Strategy</div>
-      <div class="skill">Sports Photography</div>
-      <div class="skill">Graphic Design</div>
-      <div class="skill">Adobe Photoshop</div>
-      <div class="skill">Canva</div>
-      <div class="skill">Portuguese Native</div>
-      <div class="skill">English Fluent</div>
+    <p class="section-text">
+      Grouped by where I use them, so it’s clear what comes from professional experience and what I’m building through personal projects.
+    </p>
+
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Master Data &amp; Operations</h3>
+        <p>From my work at Lacoste and MAN Energy Solutions.</p>
+        <div class="skills">
+          <div class="skill">SAP S/4HANA</div>
+          <div class="skill">Master Data Management</div>
+          <div class="skill">Product Data</div>
+          <div class="skill">Data Validation</div>
+          <div class="skill">Data Reconciliation</div>
+          <div class="skill">Data Quality</div>
+          <div class="skill">Pricing &amp; Cost Runs</div>
+          <div class="skill">Advanced Excel</div>
+          <div class="skill">Excel Macros (VBA)</div>
+          <div class="skill">Process Improvement</div>
+          <div class="skill">Stakeholder Management</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Analytics</h3>
+        <p>Personal projects, in progress.</p>
+        <div class="skills">
+          <div class="skill">SQL</div>
+          <div class="skill">Power BI</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Sports Content</h3>
+        <p>From my volunteer work at Barnes FC.</p>
+        <div class="skills">
+          <div class="skill">Social Media Management</div>
+          <div class="skill">Content Strategy</div>
+          <div class="skill">Sports Photography</div>
+          <div class="skill">Graphic Design</div>
+          <div class="skill">Adobe Photoshop</div>
+          <div class="skill">Canva</div>
+        </div>
+      </div>
     </div>
+
+    <p class="languages"><strong>Languages:</strong> Portuguese (native) · English (fluent)</p>
   </div>
 </section>
 
@@ -783,14 +948,20 @@
       </h2>
 
       <p>
-        I’m open to Data Operations roles, especially in retail and sport. Feel free to contact me about opportunities in data operations, master data management, data quality and process improvement.
+        I’m open to Data Operations, Master Data, Product Data and Data Quality roles, as well as junior Data Analyst roles, especially in retail and sport.
       </p>
 
       <div class="buttons" style="justify-content:center;">
         <a href="mailto:lucasregua@gmail.com" class="btn btn-primary">
           Email me
         </a>
+
+        <a href="https://www.linkedin.com/in/lucas-cucco-regua/" target="_blank" rel="noopener" class="btn btn-secondary">
+          LinkedIn
+        </a>
       </div>
+
+      <p style="margin:0 auto;font-size:15px;">lucasregua@gmail.com</p>
     </div>
   </div>
 </section>
