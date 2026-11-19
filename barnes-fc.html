@@ -93,8 +93,10 @@
 
     /* Gallery */
     .gallery{ display:grid; gap:16px; margin-bottom:70px; }
-    .gallery.photos{ grid-template-columns:2fr 1fr; grid-template-rows:auto auto; }
+    .gallery.photos{ grid-template-columns:2fr 1fr 1fr; grid-template-rows:230px 230px; }
     .gallery.photos .wide{ grid-row:span 2; }
+    .gallery.photos .tall{ grid-column:3; grid-row:1 / span 2; }
+    .gallery.photos .tall img{ object-position:35% center; }
     .gallery.designs{ grid-template-columns:repeat(4,1fr); margin-bottom:0; }
     .gallery figure{
       position:relative; overflow:hidden; border-radius:20px; cursor:zoom-in;
@@ -183,6 +185,8 @@
     .campaign.feature .campaign-stats strong{ color:#15181d; }
     .campaign-stats span{ color:#5c6370; font-size:14px; }
     .campaign.wide{ grid-column:1 / -1; }
+    .campaign-img{ width:100%; border-radius:16px; display:block; border:1px solid #e4ded3; cursor:zoom-in; }
+    .campaign.split{ display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; }
     .campaign .note{ font-size:14px; color:#5c6370; margin-top:14px; font-style:italic; }
     .campaign p.note{ background:none; border:0; box-shadow:none; padding:0; }
     .progress{ position:relative; height:14px; border-radius:7px; background:#e4ded3; margin-top:34px; }
@@ -240,7 +244,7 @@
       .hero h1{ font-size:54px; }
       .kpis{ grid-template-columns:1fr 1fr; }
       .roles, .cats, .posts{ grid-template-columns:1fr 1fr; }
-      .campaigns, .story{ grid-template-columns:1fr; }
+      .campaigns, .story, .campaign.split{ grid-template-columns:1fr; }
       .gallery.designs{ grid-template-columns:1fr 1fr; }
       .callout{ grid-template-columns:1fr; }
     }
@@ -252,7 +256,9 @@
       .kpi strong{ font-size:34px; }
       .roles, .cats, .posts{ grid-template-columns:1fr; }
       .gallery.photos{ grid-template-columns:1fr; }
-      .gallery.photos .wide{ grid-row:auto; }
+      .gallery.photos{ grid-template-rows:auto; }
+      .gallery.photos .wide, .gallery.photos .tall{ grid-row:auto; grid-column:auto; }
+      .gallery.photos .tall img{ aspect-ratio:1 / 1; }
       .row{ grid-template-columns:1fr; gap:10px; }
       .delta{ text-align:left; }
       .chart-card{ padding:20px; }
@@ -393,6 +399,7 @@
       <figure class="wide"><img src="images/barnes/photo-team-talk_2.jpg" alt="Barnes FC players listening to a team talk before kick-off" loading="lazy"></figure>
       <figure><img src="images/barnes/photo-coach_2.jpg" alt="Barnes FC coach giving instructions to players" loading="lazy"></figure>
       <figure><img src="images/barnes/photo-celebration_2.jpg" alt="Barnes FC player celebrating with both arms raised" loading="lazy"></figure>
+      <figure class="tall"><img src="images/barnes/photo-goal-celebration_1.jpg" alt="Barnes FC players celebrating a goal, arms raised, as the opponents walk back" loading="lazy"></figure>
     </div>
 
     <h2 class="gallery-title">Matchday graphics</h2>
@@ -498,20 +505,23 @@
       </div>
 
       <div class="campaign">
-        <div class="tag">Audience growth</div>
-        <h3>Club-history shirt giveaway</h3>
-        <p>I created a giveaway where followers could win a club-history shirt, to bring new people to the account.</p>
-        <div class="campaign-stats">
-          <div><strong>148</strong><span>likes</span></div>
-          <div><strong>#2</strong><span>most-liked post of my period</span></div>
-        </div>
-      </div>
-
-      <div class="campaign wide">
         <div class="tag">Organic reach</div>
         <h3>Collab posts with players</h3>
         <p>I noticed that when a player was added as a collaborator on a post, the page picked up new followers from that player’s own audience. So, as well as using player videos and post-match comments to entertain existing followers, I regularly set up collab posts with players to reach new people at no cost.</p>
         <p class="note">An effect I observed in the follower count. New followers per collab post weren’t tracked separately.</p>
+      </div>
+
+      <div class="campaign wide split">
+        <div>
+        <div class="tag">Audience growth</div>
+        <h3>Shirt giveaways</h3>
+        <p>I designed and ran shirt giveaways where followers entered by following the page, liking the post and tagging friends, to bring new people to the account.</p>
+        <div class="campaign-stats">
+          <div><strong>148</strong><span>likes on the club-history shirt giveaway</span></div>
+          <div><strong>#2</strong><span>most-liked post of my period</span></div>
+        </div>
+        </div>
+        <img class="campaign-img" src="images/barnes/design-shirt-giveaway.jpg" alt="Giveaway graphic I designed: Win a Barnes FC shirt. Follow our page, like this post, tag 2 friends" loading="lazy">
       </div>
     </div>
   </div>
@@ -704,7 +714,7 @@
   // Lightbox for the gallery
   const lb = document.getElementById("lightbox");
   const lbImg = lb.querySelector("img");
-  document.querySelectorAll(".gallery img").forEach(img => {
+  document.querySelectorAll(".gallery img, .campaign-img").forEach(img => {
     img.addEventListener("click", () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add("open"); });
   });
   lb.addEventListener("click", () => lb.classList.remove("open"));
