@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <meta name="description" content="How I grew Barnes FC's Instagram from ~500 to ~1,300 followers in 12 months with organic content: matchday photography, graphic design and social media management.">
+  <meta name="description" content="How Barnes FC's Instagram grew from ~500 to ~1,300 followers during my management, with organic content: matchday photography, graphic design and social media management.">
 
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; }
@@ -295,9 +295,9 @@
     </div>
 
     <div class="kpis">
-      <div class="kpi"><strong>2.6x</strong><span>Followers</span><small>~500 → ~1,300 in 12 months</small></div>
+      <div class="kpi"><strong>2.6x</strong><span>Followers</span><small>~500 → ~1,300 (approximate)</small></div>
       <div class="kpi"><strong>+28%</strong><span>Average likes per post</span><small>26.5 → 33.8</small></div>
-      <div class="kpi"><strong>2.1x</strong><span>Total likes per month</span><small>~289 → ~604</small></div>
+      <div class="kpi"><strong>2.1x</strong><span>Monthly likes</span><small>~289 → ~604</small></div>
       <div class="kpi"><strong>3.2x</strong><span>Share of posts with 50+ likes</span><small>4.6% → 14.7%</small></div>
     </div>
   </div>
@@ -409,10 +409,10 @@
 <section>
   <div class="container">
     <div class="eyebrow">Results</div>
-    <h2>Before vs. during my 12 months</h2>
-    <p class="section-text">Compared with the 12 months before I took over (Aug 2022 – Jul 2023).</p>
+    <h2>Before vs. during my management</h2>
+    <p class="section-text">During my management (2 Aug 2023 – 19 Aug 2024) compared with the 12 months before (2 Aug 2022 – 1 Aug 2023).</p>
 
-    <div class="legend"><span>12 months before</span><span class="now">My 12 months</span></div>
+    <div class="legend"><span>12 months before</span><span class="now">During my management</span></div>
 
     <div class="compare" id="compare"></div>
   </div>
@@ -461,7 +461,7 @@
       <div class="cat">
         <h3>More video</h3>
         <div class="big">13% → 24%</div>
-        <div class="sub">Share of posts that were video · +35% engagement per video</div>
+        <div class="sub">Video share nearly doubled · +35% interactions per video</div>
       </div>
       <div class="cat">
         <h3>Partner visibility</h3>
@@ -558,8 +558,8 @@
   <div class="container">
     <div class="callout">
       <div class="num blue">£0</div>
-      <p><strong>Every result here is organic.</strong> No post was boosted and no ads were run. The growth came from
-      original photography, consistent design and posting what the club’s community wanted to see.</p>
+      <p><strong>Every result here is organic.</strong> No post was boosted and no ads were run during my management. All the growth shown on this page
+      happened with original photography, in-house design and a regular posting rhythm.</p>
     </div>
   </div>
 </section>
@@ -590,10 +590,12 @@
     <div class="eyebrow">Methodology</div>
     <h2>How I measured it</h2>
     <ul class="method">
-      <li>I collected every public post on the club’s Instagram (784 posts) and recorded the date, likes, visible comments and format of each.</li>
-      <li>I compared my period (2 Aug 2023 – 19 Aug 2024) with the 12 months before it. The account’s earlier history was too sparse for a fair comparison.</li>
-      <li>Posts were grouped into content categories from their captions.</li>
-      <li>Follower figures are approximate, because Instagram does not show follower history publicly.</li>
+      <li>I analysed 356 Instagram posts: 225 published during my time managing Barnes FC’s account (2 August 2023 – 19 August 2024) and 131 from the preceding 12 months (2 August 2022 – 1 August 2023).</li>
+      <li>I compared posting frequency, likes, visible comments and content formats across the two periods. Monthly figures divide each period’s totals by its length: 12 months before and 12.6 months during.</li>
+      <li>Likes and visible comments were recorded on 19 November 2026, so they may include interactions received after the original posting period.</li>
+      <li>Each post was assigned to one content category based on its caption.</li>
+      <li>Follower figures are approximate and based on my recollection at the start and end of my involvement.</li>
+      <li>Reach, impressions and Stories were excluded because they were not publicly available.</li>
     </ul>
   </div>
 </section>
@@ -622,7 +624,7 @@
     { label: "Posts per month", before: 10.9, now: 17.9, fmt: v => v.toFixed(1) },
     { label: "Average likes per post", before: 26.5, now: 33.8, fmt: v => v.toFixed(1) },
     { label: "Median likes per post", before: 24, now: 30, fmt: v => v },
-    { label: "Total likes per month", before: 289, now: 604, fmt: v => "~" + v },
+    { label: "Monthly likes", before: 289, now: 604, fmt: v => "~" + v },
     { label: "Posts with 50+ likes", before: 4.6, now: 14.7, fmt: v => v + "%" }
   ];
   const cmp = document.getElementById("compare");
@@ -683,7 +685,7 @@
   el("line", { x1: L, x2: x(split), y1: y(bA), y2: y(bA), stroke: "#3b414b", "stroke-dasharray": "6 5", "stroke-width": 2 });
   el("text", { x: L + 8, y: y(bA) - 10, fill: "#3b414b", "font-size": 14, stroke: "#ffffff", "stroke-width": 5, "paint-order": "stroke" }, "Before: " + bA.toFixed(1));
   el("line", { x1: x(split), x2: W - R, y1: y(dA), y2: y(dA), stroke: "#15181d", "stroke-dasharray": "6 5", "stroke-width": 2 });
-  el("text", { x: x(split) + 8, y: y(dA) - 10, fill: "#15181d", "font-size": 14, "font-weight": "bold", stroke: "#ffffff", "stroke-width": 5, "paint-order": "stroke" }, "My period: " + dA.toFixed(1));
+  el("text", { x: x(split) + 8, y: y(dA) - 10, fill: "#15181d", "font-size": 14, "font-weight": "bold", stroke: "#ffffff", "stroke-width": 5, "paint-order": "stroke" }, "During my management: " + dA.toFixed(1));
   el("line", { x1: x(split), x2: x(split), y1: T - 18, y2: T + plotH, stroke: "#b9b1a3" });
   el("text", { x: x(split) + 8, y: T - 22, fill: "#0b6b57", "font-size": 14, "font-weight": "bold" }, "I took over · Aug 2023");
 
