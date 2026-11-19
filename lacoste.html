@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lacoste | Lucas Cucco</title>
+  <meta name="description" content="How I kept Lacoste Footwear's material master data in SAP S/4HANA aligned with the PLM, built Excel reconciliation templates and a one-click validation macro.">
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{ background:#05070b; color:white; font-family:Arial, sans-serif; line-height:1.7; }
+    .container{ width:90%; max-width:1150px; margin:auto; }
+    .blue{ color:#2f80ff; }
+
+    nav{
+      position:sticky; top:0; z-index:100;
+      background:rgba(5,7,11,0.95); backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-content{ display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+    .logo{ font-size:26px; font-weight:bold; color:white; text-decoration:none; }
+    .logo span{ color:#2f80ff; }
+    .back{ color:#9aa4b2; text-decoration:none; font-size:14px; }
+    .back:hover{ color:white; }
+
+    .eyebrow{
+      color:#2f80ff; text-transform:uppercase; letter-spacing:2px;
+      font-size:13px; font-weight:bold; margin-bottom:20px;
+    }
+
+    .hero{ padding:110px 0 80px; position:relative; overflow:hidden; }
+    .hero::before{
+      content:""; position:absolute; inset:-200px -200px auto auto;
+      width:640px; height:640px; border-radius:50%;
+      background:radial-gradient(circle, rgba(47,128,255,0.22), transparent 65%);
+      pointer-events:none;
+    }
+    .hero h1{ font-size:72px; line-height:1.02; font-weight:800; margin-bottom:28px; max-width:950px; }
+    .hero .lead{ font-size:21px; color:#9aa4b2; max-width:780px; margin-bottom:34px; }
+    .meta{ display:flex; flex-wrap:wrap; gap:12px; }
+    .chip{
+      padding:10px 18px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03);
+      font-size:14px; color:#cfd6e0;
+    }
+
+    .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:60px; }
+    .kpi{
+      background:linear-gradient(160deg,rgba(47,128,255,0.12),rgba(255,255,255,0.02));
+      border:1px solid rgba(47,128,255,0.25); border-radius:24px; padding:26px;
+    }
+    .kpi strong{ display:block; font-size:30px; line-height:1.2; margin-bottom:8px; }
+    .kpi span{ color:#9aa4b2; font-size:15px; display:block; }
+
+    section{ padding:100px 0; border-top:1px solid rgba(255,255,255,0.06); }
+    h2{ font-size:52px; line-height:1.1; margin-bottom:18px; }
+    .section-text{ color:#9aa4b2; max-width:820px; margin-bottom:45px; font-size:18px; }
+
+    .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .card{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px; padding:32px;
+    }
+    .card h3{ font-size:24px; margin:12px 0 10px; }
+    .card p, .card li{ color:#9aa4b2; font-size:16px; }
+    .card ul{ padding-left:18px; }
+    .card li{ margin-bottom:8px; }
+    .icon{ font-size:34px; }
+
+    /* Flow */
+    .flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; align-items:stretch; }
+    .step{
+      position:relative; padding:24px 20px; border-radius:20px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    }
+    .step.key{ border-color:rgba(47,128,255,0.5); background:linear-gradient(160deg,rgba(47,128,255,0.16),rgba(255,255,255,0.02)); }
+    .step .n{ color:#2f80ff; font-weight:800; font-size:14px; letter-spacing:1px; }
+    .step h4{ font-size:17px; margin:8px 0 6px; line-height:1.3; }
+    .step p{ color:#9aa4b2; font-size:14px; line-height:1.55; }
+    .step:not(:last-child)::after{
+      content:"→"; position:absolute; right:-14px; top:50%; transform:translate(50%,-50%);
+      color:#2f80ff; font-weight:bold; font-size:18px; z-index:2;
+    }
+    .code{
+      display:inline-block; margin-top:8px; padding:3px 9px; border-radius:8px;
+      background:rgba(47,128,255,0.15); color:#8fb8ff; font-family:Consolas, Menlo, monospace; font-size:13px;
+    }
+
+    /* Before / after */
+    .ba{ display:grid; grid-template-columns:1fr auto 1fr; gap:22px; align-items:center; margin-top:10px; }
+    .ba .box{ padding:30px; border-radius:22px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); }
+    .ba .box.after{ border-color:rgba(47,128,255,0.5); background:linear-gradient(160deg,rgba(47,128,255,0.16),rgba(255,255,255,0.02)); }
+    .ba .label{ font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9aa4b2; font-weight:bold; }
+    .ba strong{ display:block; font-size:30px; margin:8px 0 6px; line-height:1.2; }
+    .ba p{ color:#9aa4b2; font-size:15px; }
+    .ba .arrow{ font-size:34px; color:#2f80ff; font-weight:bold; }
+
+    /* Teams */
+    .teams{ display:flex; flex-wrap:wrap; gap:14px; }
+    .team{
+      display:flex; align-items:center; gap:12px; padding:16px 22px; border-radius:18px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); font-weight:bold;
+    }
+    .team span{ color:#9aa4b2; font-weight:normal; font-size:14px; }
+
+    .skills{ display:flex; flex-wrap:wrap; gap:14px; }
+    .skill{
+      padding:14px 20px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); font-weight:bold;
+    }
+
+    .note{
+      padding:34px 38px; border-radius:24px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      color:#cfd6e0; font-size:18px; max-width:900px;
+    }
+
+    .cta{
+      text-align:center; padding:60px; border-radius:28px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    }
+    .cta p{ color:#9aa4b2; max-width:640px; margin:18px auto 32px; font-size:18px; }
+    .buttons{ display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+    .btn{
+      padding:16px 26px; border-radius:14px; text-decoration:none; font-weight:bold;
+      transition:0.2s; border:1px solid rgba(255,255,255,0.1); color:white;
+    }
+    .btn-primary{ background:#2f80ff; }
+    .btn:hover{ transform:translateY(-2px); }
+
+    footer{ text-align:center; padding:40px 0; color:#9aa4b2; border-top:1px solid rgba(255,255,255,0.08); }
+
+    @media(max-width:950px){
+      .hero h1{ font-size:52px; }
+      .kpis{ grid-template-columns:1fr 1fr; }
+      .two-col{ grid-template-columns:1fr; }
+      .flow{ grid-template-columns:1fr; }
+      .step:not(:last-child)::after{ content:"↓"; right:50%; top:auto; bottom:-14px; transform:translate(50%,50%); }
+      .ba{ grid-template-columns:1fr; }
+      .ba .arrow{ transform:rotate(90deg); justify-self:center; }
+    }
+    @media(max-width:700px){
+      .hero{ padding:70px 0 60px; }
+      .hero h1{ font-size:38px; }
+      .hero .lead{ font-size:18px; }
+      h2{ font-size:36px; }
+      .kpis{ grid-template-columns:1fr; }
+      section{ padding:70px 0; }
+      .cta{ padding:40px 24px; }
+      .note{ padding:26px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="index.html" class="logo">Lucas <span>Cucco</span></a>
+    <a href="index.html#experience" class="back">← Back to portfolio</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Experience · Lacoste</div>
+    <h1>Keeping Lacoste’s product data <span class="blue">right</span>, from PLM to SAP</h1>
+    <p class="lead">
+      I joined Lacoste’s Footwear office in London in August 2024 as Master Data Management Executive. It was a fantastic period
+      for me. I owned Lacoste’s material data in SAP S/4HANA and built the tools that kept it aligned with the PLM.
+    </p>
+    <div class="meta">
+      <span class="chip">Master Data Management Executive</span>
+      <span class="chip">Aug 2024 – Jun 2026</span>
+      <span class="chip">Footwear office · London</span>
+      <span class="chip">SAP S/4HANA · DeSL PLM · Excel</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><strong>All materials</strong><span>Owner of Lacoste’s material data in SAP</span></div>
+      <div class="kpi"><strong>SAP ↔ PLM</strong><span>Regular, field-by-field reconciliation I built in Excel</span></div>
+      <div class="kpi"><strong>1 click</strong><span>Bulk validation that used to take many minutes</span></div>
+      <div class="kpi"><strong>London · Paris · Asia</strong><span>Teams I worked with every week</span></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">The role</div>
+    <h2>What I was responsible for</h2>
+    <p class="section-text">Two systems had to tell the same story: the PLM, where products are designed and changed, and SAP, where they are bought, priced and sold.</p>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="icon">🧩</div>
+        <h3>Material master data</h3>
+        <ul>
+          <li>Created materials in SAP S/4HANA.</li>
+          <li>Owned all of Lacoste’s material information in SAP.</li>
+          <li>Made sure SAP always matched the DeSL PLM, even when product details changed in the PLM.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="icon">💷</div>
+        <h3>Pricing in the buy phase</h3>
+        <ul>
+          <li>Priced materials during the buy phase.</li>
+          <li>Ran cost runs in SAP.</li>
+          <li>Linked each material to the correct supplier, using the finance team’s margin document.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">What I built · 1</div>
+    <h2>An SAP vs PLM reconciliation template</h2>
+    <p class="section-text">
+      I built Excel templates that compare SAP and PLM data field by field. They made the checks fast enough to run
+      regularly, so any mismatch was caught straight away.
+    </p>
+
+    <div class="flow">
+      <div class="step">
+        <div class="n">01</div>
+        <h4>Export from SAP</h4>
+        <p>Material data downloaded into one tab.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h4>Export from PLM</h4>
+        <p>The same fields from the DeSL PLM in a second tab.</p>
+      </div>
+      <div class="step key">
+        <div class="n">03</div>
+        <h4>Compare field by field</h4>
+        <p>Formulas match each material and check every value.</p>
+        <span class="code">XLOOKUP · EXACT</span>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <h4>Flag mismatches</h4>
+        <p>Anything out of line is highlighted instantly.</p>
+      </div>
+      <div class="step">
+        <div class="n">05</div>
+        <h4>Confirm and correct</h4>
+        <p>I contacted the responsible team to confirm the right value, then updated SAP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">What I built · 2</div>
+    <h2>A one-click validation macro</h2>
+    <p class="section-text">
+      Before uploading new materials from the PLM into SAP, every material had to pass a validation check. I wrote an
+      Excel macro that runs the whole check at once, so a clean batch could go straight to upload.
+    </p>
+
+    <div class="ba">
+      <div class="box">
+        <div class="label">Before</div>
+        <strong>Many minutes</strong>
+        <p>A manual validation that grew with every material in the batch.</p>
+      </div>
+      <div class="arrow">→</div>
+      <div class="box after">
+        <div class="label">After</div>
+        <strong>One click</strong>
+        <p>The macro validates the full batch and confirms it is ready to upload to SAP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Collaboration</div>
+    <h2>Who I worked with</h2>
+    <p class="section-text">Keeping the data right meant working closely with teams across the business and across countries.</p>
+
+    <div class="teams">
+      <div class="team">PLM team</div>
+      <div class="team">Developers</div>
+      <div class="team">Customer Operations</div>
+      <div class="team">Finance</div>
+      <div class="team">Paris <span>· head office teams</span></div>
+      <div class="team">Asia <span>· regional teams</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Skills</div>
+    <h2>Tools I used every day</h2>
+    <div class="skills">
+      <div class="skill">SAP S/4HANA</div>
+      <div class="skill">DeSL PLM</div>
+      <div class="skill">Advanced Excel</div>
+      <div class="skill">XLOOKUP &amp; EXACT</div>
+      <div class="skill">Excel Macros (VBA)</div>
+      <div class="skill">Data Reconciliation</div>
+      <div class="skill">Data Validation</div>
+      <div class="skill">Cost Runs &amp; Pricing</div>
+      <div class="skill">Stakeholder Management</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">How it ended</div>
+    <h2>Office closure</h2>
+    <p class="note">
+      My role was made redundant when Lacoste closed its London office. My last day was 30 June 2026.
+      I’m now open to Data Operations roles, especially in retail and sport.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <div class="eyebrow">Contact</div>
+      <h2>Let’s talk</h2>
+      <p>Looking for someone who keeps operational data accurate and builds tools to make it faster? I’d love to hear from you.</p>
+      <div class="buttons">
+        <a href="mailto:lucasregua@gmail.com" class="btn btn-primary">Email me</a>
+        <a href="index.html" class="btn">Back to portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Lucas Cucco · London, United Kingdom</footer>
+
+</body>
+</html>
