@@ -177,6 +177,8 @@
       .note{ padding:26px; }
     }
     .card .code{ margin-top:14px; }
+    .flow.four{ grid-template-columns:repeat(4,1fr); }
+    @media(max-width:950px){ .flow.four{ grid-template-columns:1fr; } }
     .ba .link{ display:inline-block; margin-top:10px; color:#0b6b57; font-weight:bold; text-decoration:none; }
     .ba .link:hover{ text-decoration:underline; }
     .ba .label{ letter-spacing:1px; }
@@ -236,7 +238,7 @@
       <div class="card">
         <div class="icon">🛒</div>
         <h3>Purchasing and operational support</h3>
-        <p>I learned to create purchase orders using ME21N and review existing orders in ME23N. I also processed transactions in MIGO and passed the relevant documentation to Finance for payment processing.</p>
+        <p>I learned to create purchase orders using ME21N and review existing orders in ME23N. When supplier invoices arrived, I posted them against the purchase order in MIGO so Finance could process the payment.</p>
         <span class="code">ME21N · ME23N · MIGO</span>
       </div>
       <div class="card">
@@ -248,6 +250,41 @@
         <div class="icon">🎓</div>
         <h3>What I learned</h3>
         <p>The internship gave me a practical foundation in SAP, material data and procurement. It also taught me to work carefully with supplier information and to communicate with suppliers and Finance when issues needed to be resolved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Invoice to payment</div>
+    <h2>How supplier invoices reached payment</h2>
+    <p class="section-text">
+      A supplier could only be paid once its invoice was matched to a purchase order with enough balance. Every supplier payment went through this step: I posted each invoice in MIGO before it reached Finance.
+    </p>
+
+    <div class="flow four">
+      <div class="step">
+        <div class="n">01</div>
+        <h4>Invoice received</h4>
+        <p>A supplier invoice arrived, referencing a purchase order.</p>
+      </div>
+      <div class="step key">
+        <div class="n">02</div>
+        <h4>Post against the PO</h4>
+        <p>I posted the invoiced amount against the purchase order, using up that part of its balance.</p>
+        <span class="code">MIGO</span>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h4>Top up when needed</h4>
+        <p>If the PO had no balance left, I asked the responsible team to raise a new purchase requisition and PO.</p>
+      </div>
+      <div class="step">
+        <div class="n">04</div>
+        <h4>Hand over to Finance</h4>
+        <p>I sent the invoice to Finance, who verified it in MIRO and made the payment.</p>
+        <span class="code">MIRO · Finance</span>
       </div>
     </div>
   </div>
@@ -286,6 +323,7 @@
       <div class="skill">SAP ECC</div>
       <div class="skill">Material Master Data</div>
       <div class="skill">Purchase Orders</div>
+      <div class="skill">Invoice Processing (MIGO)</div>
       <div class="skill">Supplier Data</div>
       <div class="skill">Procurement Support</div>
       <div class="skill">Supplier Communication</div>
