@@ -96,6 +96,27 @@
     .ba p{ color:#9aa4b2; font-size:15px; }
     .ba .arrow{ font-size:34px; color:#2f80ff; font-weight:bold; }
 
+    /* SAP transactions */
+    .tx-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .tx{
+      padding:24px; border-radius:20px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    }
+    .tx.main{ border-color:rgba(47,128,255,0.5); background:linear-gradient(160deg,rgba(47,128,255,0.16),rgba(255,255,255,0.02)); }
+    .tx .codes{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+    .tx .codes span{
+      padding:4px 11px; border-radius:8px; background:rgba(47,128,255,0.15); color:#8fb8ff;
+      font-family:Consolas, Menlo, monospace; font-size:14px; font-weight:bold;
+    }
+    .tx .tag{ display:inline-block; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#7ee2a8; font-weight:bold; margin-bottom:8px; }
+    .tx h4{ font-size:18px; margin-bottom:6px; }
+    .tx p{ color:#9aa4b2; font-size:14px; }
+    .callout-test{
+      display:flex; gap:18px; align-items:center; margin-top:22px; padding:24px 28px; border-radius:20px;
+      background:rgba(46,204,113,0.07); border:1px solid rgba(46,204,113,0.35); color:#cfd6e0; font-size:16px;
+    }
+    .callout-test .ico{ font-size:28px; }
+
     /* Teams */
     .teams{ display:flex; flex-wrap:wrap; gap:14px; }
     .team{
@@ -135,6 +156,7 @@
       .hero h1{ font-size:52px; }
       .kpis{ grid-template-columns:1fr 1fr; }
       .two-col{ grid-template-columns:1fr; }
+      .tx-grid{ grid-template-columns:1fr 1fr; }
       .flow{ grid-template-columns:1fr; }
       .step:not(:last-child)::after{ content:"↓"; right:50%; top:auto; bottom:-14px; transform:translate(50%,50%); }
       .ba{ grid-template-columns:1fr; }
@@ -146,6 +168,7 @@
       .hero .lead{ font-size:18px; }
       h2{ font-size:36px; }
       .kpis{ grid-template-columns:1fr; }
+      .tx-grid{ grid-template-columns:1fr; }
       section{ padding:70px 0; }
       .cta{ padding:40px 24px; }
       .note{ padding:26px; }
@@ -282,6 +305,63 @@
 
 <section>
   <div class="container">
+    <div class="eyebrow">Hands-on SAP</div>
+    <h2>The SAP transactions I used</h2>
+    <p class="section-text">My day-to-day work in SAP S/4HANA covered mass changes, pricing, reporting and data migration.</p>
+
+    <div class="tx-grid">
+      <div class="tx main">
+        <div class="tag">Main transactions</div>
+        <div class="codes"><span>MM46</span><span>MASS</span></div>
+        <h4>Mass changes</h4>
+        <p>Updated material classifications in bulk.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>CK40N</span></div>
+        <h4>Cost runs</h4>
+        <p>Ran costing for materials in the buy phase.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>VK11</span></div>
+        <h4>Price conditions</h4>
+        <p>Recorded pricing conditions for materials.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>SE16N</span></div>
+        <h4>Table checks</h4>
+        <p>Queried SAP tables to verify data directly.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>SQVI</span><span>SQ01</span></div>
+        <h4>Reporting</h4>
+        <p>Built QuickView reports in SQVI and reviewed saved queries in SQ01.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>Custom</span></div>
+        <h4>Mass material upload</h4>
+        <p>Uploaded materials in bulk through a custom transaction.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>SAP Fiori</span></div>
+        <h4>Commodities</h4>
+        <p>Registered commodity data through Fiori apps.</p>
+      </div>
+      <div class="tx">
+        <div class="codes"><span>Fiori</span></div>
+        <h4>Data Migration Cockpit</h4>
+        <p>Loaded and migrated data at scale.</p>
+      </div>
+    </div>
+
+    <div class="callout-test">
+      <span class="ico">🧪</span>
+      <div><strong>Test first, then go live.</strong> I ran changes in the S4Q test system before executing them in Production.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
     <div class="eyebrow">Collaboration</div>
     <h2>Who I worked with</h2>
     <p class="section-text">Keeping the data right meant working closely with teams across the business and across countries.</p>
@@ -303,6 +383,9 @@
     <h2>Tools I used every day</h2>
     <div class="skills">
       <div class="skill">SAP S/4HANA</div>
+      <div class="skill">SAP Fiori</div>
+      <div class="skill">Data Migration Cockpit</div>
+      <div class="skill">SAP Query (SQVI, SQ01)</div>
       <div class="skill">DeSL PLM</div>
       <div class="skill">Advanced Excel</div>
       <div class="skill">XLOOKUP &amp; EXACT</div>
