@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lucas Cucco | SAP Master Data Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     *{
@@ -13,9 +16,9 @@
     }
 
     body{
-      background:#05070b;
-      color:white;
-      font-family:Arial, sans-serif;
+      background:#f5f3ee;
+      color:#15181d;
+      font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
       line-height:1.7;
     }
 
@@ -33,9 +36,9 @@
       position:sticky;
       top:0;
       z-index:100;
-      background:rgba(5,7,11,0.95);
+      background:rgba(245,243,238,0.92);
       backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      border-bottom:1px solid #e4ded3;
     }
 
     .nav-content{
@@ -51,7 +54,7 @@
     }
 
     .logo span{
-      color:#2f80ff;
+      color:#0b6b57;
     }
 
     .nav-links{
@@ -60,13 +63,13 @@
     }
 
     .nav-links a{
-      color:#9aa4b2;
+      color:#5c6370;
       text-decoration:none;
       font-size:14px;
     }
 
     .nav-links a:hover{
-      color:white;
+      color:#15181d;
     }
 
     .hero{
@@ -92,7 +95,7 @@
       border-radius:999px;
       background:rgba(46,204,113,0.10);
       border:1px solid rgba(46,204,113,0.40);
-      color:#7ee2a8;
+      color:#1e8e5a;
       font-size:14px;
       font-weight:bold;
       text-decoration:none;
@@ -107,7 +110,7 @@
     }
 
     .eyebrow{
-      color:#2f80ff;
+      color:#0b6b57;
       text-transform:uppercase;
       letter-spacing:2px;
       font-size:13px;
@@ -123,12 +126,12 @@
     }
 
     .blue{
-      color:#2f80ff;
+      color:#0b6b57;
     }
 
     .hero p{
       font-size:22px;
-      color:#9aa4b2;
+      color:#5c6370;
       max-width:650px;
       margin-bottom:35px;
     }
@@ -146,16 +149,17 @@
       text-decoration:none;
       font-weight:bold;
       transition:0.2s;
-      border:1px solid rgba(255,255,255,0.1);
+      border:1px solid #e4ded3;
     }
 
     .btn-primary{
-      background:#2f80ff;
-      color:white;
+      background:#0b6b57;
+      color:#ffffff;
+      border-color:#0b6b57;
     }
 
     .btn-secondary{
-      color:white;
+      color:#15181d;
       background:transparent;
     }
 
@@ -167,14 +171,14 @@
       display:flex;
       gap:20px;
       flex-wrap:wrap;
-      color:#9aa4b2;
+      color:#5c6370;
       font-size:15px;
     }
 
     .photo-box{
       padding:10px;
       border-radius:30px;
-      background:linear-gradient(135deg,#2f80ff,rgba(255,255,255,0.05));
+      background:linear-gradient(135deg,#0b6b57,#ffffff);
     }
 
     .photo-box img{
@@ -185,7 +189,7 @@
 
     section{
       padding:100px 0;
-      border-top:1px solid rgba(255,255,255,0.06);
+      border-top:1px solid #e4ded3;
     }
 
     h2{
@@ -194,7 +198,7 @@
     }
 
     .section-text{
-      color:#9aa4b2;
+      color:#5c6370;
       max-width:800px;
       margin-bottom:45px;
       font-size:18px;
@@ -207,15 +211,15 @@
     }
 
     .card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#ffffff;
+      border:1px solid #e4ded3;
       border-radius:28px;
       padding:32px;
     }
 
     .fact{
       padding:18px 0;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      border-bottom:1px solid #e4ded3;
     }
 
     .fact:last-child{
@@ -229,12 +233,12 @@
     }
 
     .fact span{
-      color:#9aa4b2;
+      color:#5c6370;
       font-size:14px;
     }
 
     .about-text p{
-      color:#9aa4b2;
+      color:#5c6370;
       margin-bottom:22px;
       font-size:18px;
     }
@@ -246,8 +250,8 @@
     }
 
     .service-card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#ffffff;
+      border:1px solid #e4ded3;
       border-radius:24px;
       padding:28px;
     }
@@ -258,7 +262,7 @@
     }
 
     .service-card p{
-      color:#9aa4b2;
+      color:#5c6370;
       font-size:15px;
     }
 
@@ -275,14 +279,14 @@
       display:grid;
       grid-template-columns:180px 1fr;
       gap:35px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#ffffff;
+      border:1px solid #e4ded3;
       border-radius:24px;
       padding:30px;
     }
 
     .timeline-date{
-      color:#2f80ff;
+      color:#0b6b57;
       font-weight:bold;
     }
 
@@ -292,14 +296,14 @@
     }
 
     .timeline-item h4{
-      color:#9aa4b2;
+      color:#5c6370;
       margin-bottom:16px;
       font-weight:normal;
     }
 
     .timeline-item ul{
       padding-left:18px;
-      color:#9aa4b2;
+      color:#5c6370;
     }
 
     .timeline-item li{
@@ -310,15 +314,15 @@
       color:inherit;
       text-decoration:none;
       position:relative;
-      border-color:rgba(47,128,255,0.35);
-      background:linear-gradient(135deg,rgba(47,128,255,0.10),rgba(255,255,255,0.02));
+      border-color:rgba(11,107,87,0.35);
+      background:linear-gradient(135deg,rgba(11,107,87,0.10),#ffffff);
       transition:transform 0.2s, border-color 0.2s, box-shadow 0.2s;
     }
 
     .timeline-link:hover{
       transform:translateY(-3px);
-      border-color:#2f80ff;
-      box-shadow:0 18px 50px rgba(47,128,255,0.18);
+      border-color:#0b6b57;
+      box-shadow:0 18px 50px rgba(11,107,87,0.18);
     }
 
     .case-badge{
@@ -326,9 +330,9 @@
       margin-top:12px;
       padding:5px 12px;
       border-radius:999px;
-      background:rgba(47,128,255,0.15);
-      border:1px solid rgba(47,128,255,0.4);
-      color:#8fb8ff;
+      background:rgba(11,107,87,0.15);
+      border:1px solid rgba(11,107,87,0.4);
+      color:#0b6b57;
       font-size:12px;
       letter-spacing:1px;
       text-transform:uppercase;
@@ -344,25 +348,25 @@
     .mini-stats div{
       padding:12px 18px;
       border-radius:16px;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#faf8f4;
+      border:1px solid #e4ded3;
       min-width:120px;
     }
 
     .mini-stats strong{
       display:block;
       font-size:24px;
-      color:white;
+      color:#15181d;
       line-height:1.2;
     }
 
     .mini-stats span{
-      color:#9aa4b2;
+      color:#5c6370;
       font-size:13px;
     }
 
     .read-more{
-      color:#2f80ff;
+      color:#0b6b57;
       font-weight:bold;
     }
 
@@ -379,21 +383,21 @@
     .skill{
       padding:14px 20px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(255,255,255,0.03);
+      border:1px solid #e4ded3;
+      background:#ffffff;
       font-weight:bold;
     }
 
     .contact-box{
       text-align:center;
       padding:60px;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.08);
+      background:#ffffff;
+      border:1px solid #e4ded3;
       border-radius:28px;
     }
 
     .contact-box p{
-      color:#9aa4b2;
+      color:#5c6370;
       max-width:700px;
       margin:20px auto 35px;
       font-size:18px;
@@ -402,8 +406,8 @@
     footer{
       text-align:center;
       padding:40px 0;
-      color:#9aa4b2;
-      border-top:1px solid rgba(255,255,255,0.08);
+      color:#5c6370;
+      border-top:1px solid #e4ded3;
     }
 
     @media(max-width:950px){
@@ -435,6 +439,16 @@
         display:none;
       }
     }
+    /* Theme polish */
+    body{ -webkit-font-smoothing:antialiased; }
+    h1, h2{ letter-spacing:-0.03em; }
+    h3, h4{ letter-spacing:-0.01em; }
+    .card, .service-card, .timeline-item, .kpi, .role, .cat, .post, .campaign, .story-item, .step, .tx,
+    .chart-card, .row, .contact-box, .cta, .team, .ba .box, .note, .callout, .skill, .chip, .mini-stats div{
+      box-shadow:0 1px 2px rgba(21,24,29,0.04), 0 8px 24px rgba(21,24,29,0.05);
+    }
+    .tooltip{ box-shadow:0 10px 30px rgba(21,24,29,0.15); }
+    ::selection{ background:rgba(11,107,87,0.18); }
   </style>
 </head>
 
@@ -462,7 +476,7 @@
       <a href="#contact" class="open-badge"><span class="dot"></span>Open to Data Operations roles</a>
 
       <div class="eyebrow">
-        SAP Master Data & Process Improvement
+        Data Operations · Master Data · Data Quality
       </div>
 
       <h1>
@@ -470,7 +484,7 @@
       </h1>
 
       <p>
-        I work with SAP S/4HANA, master data management, data validation and process improvement, helping businesses maintain accurate and reliable operational data across multiple systems.
+        Data professional with hands-on experience in SAP S/4HANA, master data, data quality and process improvement. I keep operational data accurate and reliable across systems, and build tools that make the work faster.
       </p>
 
       <div class="buttons">
@@ -514,6 +528,11 @@
         </div>
 
         <div class="fact">
+          <strong>UK Settled Status</strong>
+          <span>No visa sponsorship needed · Available immediately</span>
+        </div>
+
+        <div class="fact">
           <strong>MSc Sport Management and Marketing</strong>
           <span>Birkbeck, University of London · Part-time, in progress</span>
         </div>
@@ -541,39 +560,31 @@
 
       <div class="about-text">
         <p>
-          I’m Lucas Cucco, originally from Rio de Janeiro and currently based in London, where I have worked in Master Data Management within the retail industry.
+          I’m a Brazilian data professional based in London, with nearly two years of experience in Master Data Management at Lacoste. I hold a bachelor’s degree in Business Administration from Universidade Federal Fluminense (UFF), one of Brazil’s leading universities.
         </p>
 
         <p>
-          At Lacoste, my work focused on SAP S/4HANA, master data accuracy, data validation, reconciliation, large-scale data updates and process improvement across different business systems and teams. My role was made redundant when Lacoste closed its London office, and my last day was 30 June 2026. Since then, I have been focusing on developing my skills and strengthening my profile.
+          At Lacoste, I managed product data in SAP S/4HANA, kept it consistent with the PLM, and worked with colleagues across buying, merchandising, finance and operations in London, Paris and Asia. One of my favourite achievements was an Excel macro that cut a validation task from around 30 minutes to a few seconds.
         </p>
 
         <p>
-          I’m now open to new opportunities in Data Operations, especially in retail and sport, where I can bring together my experience in master data, data quality and process improvement.
+          My role was made redundant when Lacoste closed its London office, and my last day was 30 June 2026. Since then, I have been strengthening my profile, developing my SQL and Power BI skills through personal projects alongside my strengths in Excel, data validation and process improvement.
         </p>
 
         <p>
-          Before moving to the UK, I worked as a Supply Chain Intern at MAN Energy Solutions in Brazil. That was where I had my first professional experience working with Excel, SAP and operational data, which sparked my interest in business systems and data processes.
+          I’m looking for opportunities in Data Operations, Master Data, Product Data and Data Quality, as well as junior Data Analyst roles, especially in retail and sport.
         </p>
 
         <p>
-          After that experience, I moved to London to start a new chapter and challenge myself professionally and personally. While adapting to a new country and building my life in the UK, I completed my Business Administration degree at Universidade Federal Fluminense (UFF), a well-regarded public university based in Rio de Janeiro, Brazil.
+          I’m also studying part-time for an MSc in Sport Management and Marketing at Birkbeck, University of London. Sport has always been a big part of my life, particularly football, and I’m interested in how data can help organisations understand their performance and make better decisions.
         </p>
 
         <p>
-          During my first years in London, I also worked as a bartender while studying and building my life in the UK. Looking back, it was an important experience that taught me resilience, communication and adaptability in a fast-paced environment.
+          My first experience with SAP and operational data was as a Supply Chain Intern at MAN Energy Solutions in Rio de Janeiro. After moving to London, I also worked in hospitality while finishing my degree, which taught me resilience and communication in a fast-paced environment.
         </p>
 
         <p>
-          Today, I enjoy working with SAP S/4HANA, Excel automation, data validation, reconciliation and process improvement. I like finding practical ways to make workflows cleaner, faster and more reliable.
-        </p>
-
-        <p>
-          I’m currently studying for an MSc in Sport Management and Marketing at Birkbeck, University of London, part-time, bringing together my background in data with my passion for sport.
-        </p>
-
-        <p>
-          Outside work, I enjoy watching sports, especially football. I support Flamengo in Brazil, and in my free time I also enjoy playing football, tennis and going for runs from time to time.
+          I have UK Settled Status, so I don’t need visa sponsorship, and I’m available immediately. I’m keen to join a team where I can contribute, keep learning and grow my career in data.
         </p>
       </div>
     </div>
@@ -655,9 +666,9 @@
           <ul>
             <li>Owned all of Lacoste’s material data in SAP S/4HANA, creating materials and keeping them aligned with the DeSL PLM.</li>
             <li>Built Excel reconciliation templates (XLOOKUP, EXACT) comparing SAP and PLM field by field, so mismatches were caught straight away.</li>
-            <li>Wrote an Excel macro that turned the bulk validation before SAP uploads into a one-click check.</li>
+            <li>Wrote an Excel macro that cut the validation before SAP uploads from around 30 minutes to a few seconds.</li>
             <li>Priced materials in the buy phase, running cost runs and linking materials to the correct suppliers using finance’s margin document.</li>
-            <li>Worked with PLM, developers, customer operations, finance, and teams in Paris and Asia.</li>
+            <li>Worked with PLM, developers, buying, merchandising, customer operations, finance, and teams in Paris and Asia.</li>
             <li>Role made redundant in June 2026 following the closure of Lacoste’s London office.</li>
           </ul>
 
