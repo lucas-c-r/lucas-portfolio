@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barnes FC Case Study | Lucas Cucco</title>
+  <meta name="description" content="How I grew Barnes FC's Instagram from ~500 to ~1,300 followers in 12 months with organic content: matchday photography, graphic design and social media management.">
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background:#05070b;
+      color:white;
+      font-family:Arial, sans-serif;
+      line-height:1.7;
+    }
+    .container{ width:90%; max-width:1150px; margin:auto; }
+    .blue{ color:#2f80ff; }
+    .muted{ color:#9aa4b2; }
+
+    nav{
+      position:sticky; top:0; z-index:100;
+      background:rgba(5,7,11,0.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-content{ display:flex; justify-content:space-between; align-items:center; padding:20px 0; }
+    .logo{ font-size:26px; font-weight:bold; color:white; text-decoration:none; }
+    .logo span{ color:#2f80ff; }
+    .back{ color:#9aa4b2; text-decoration:none; font-size:14px; }
+    .back:hover{ color:white; }
+
+    .eyebrow{
+      color:#2f80ff; text-transform:uppercase; letter-spacing:2px;
+      font-size:13px; font-weight:bold; margin-bottom:20px;
+    }
+
+    /* Hero */
+    .hero{ padding:110px 0 80px; position:relative; overflow:hidden; }
+    .hero::before{
+      content:""; position:absolute; inset:-200px -200px auto auto;
+      width:640px; height:640px; border-radius:50%;
+      background:radial-gradient(circle, rgba(47,128,255,0.22), transparent 65%);
+      pointer-events:none;
+    }
+    .hero h1{ font-size:76px; line-height:1; font-weight:800; margin-bottom:28px; max-width:900px; }
+    .hero .lead{ font-size:21px; color:#9aa4b2; max-width:760px; margin-bottom:34px; }
+    .meta{ display:flex; flex-wrap:wrap; gap:12px; }
+    .chip{
+      padding:10px 18px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03);
+      font-size:14px; color:#cfd6e0;
+    }
+
+    /* KPI tiles */
+    .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:60px; }
+    .kpi{
+      background:linear-gradient(160deg,rgba(47,128,255,0.12),rgba(255,255,255,0.02));
+      border:1px solid rgba(47,128,255,0.25);
+      border-radius:24px; padding:26px;
+    }
+    .kpi strong{ display:block; font-size:44px; line-height:1.1; margin-bottom:8px; }
+    .kpi span{ color:#9aa4b2; font-size:15px; display:block; }
+    .kpi small{ color:#6f7a89; font-size:13px; display:block; margin-top:6px; }
+
+    section{ padding:100px 0; border-top:1px solid rgba(255,255,255,0.06); }
+    h2{ font-size:52px; line-height:1.1; margin-bottom:18px; }
+    .section-text{ color:#9aa4b2; max-width:800px; margin-bottom:45px; font-size:18px; }
+
+    /* Roles */
+    .roles{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .role{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px; padding:30px;
+    }
+    .role .icon{ font-size:34px; }
+    .role h3{ font-size:24px; margin:14px 0 10px; }
+    .role p{ color:#9aa4b2; font-size:15px; }
+
+    /* Before / after */
+    .compare{ display:grid; gap:14px; }
+    .row{
+      display:grid; grid-template-columns:1.2fr 2fr 110px; gap:24px; align-items:center;
+      padding:20px 26px; border-radius:20px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    }
+    .row .label{ font-weight:bold; font-size:17px; }
+    .bars{ display:grid; gap:8px; }
+    .bar{ display:flex; align-items:center; gap:12px; font-size:14px; color:#9aa4b2; }
+    .bar i{ display:block; height:12px; border-radius:6px; background:#3a4250; flex:none; }
+    .bar.now i{ background:#2f80ff; }
+    .bar.now{ color:white; }
+    .delta{ text-align:right; font-size:24px; font-weight:bold; color:#2f80ff; }
+    .legend{ display:flex; gap:22px; color:#9aa4b2; font-size:14px; margin-bottom:18px; }
+    .legend span::before{
+      content:""; display:inline-block; width:12px; height:12px; border-radius:3px;
+      margin-right:8px; vertical-align:-1px; background:#3a4250;
+    }
+    .legend span.now::before{ background:#2f80ff; }
+
+    /* Chart */
+    .chart-card{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px; padding:32px;
+    }
+    .chart-card h3{ font-size:24px; margin-bottom:4px; }
+    .chart-card p{ color:#9aa4b2; font-size:15px; margin-bottom:24px; }
+    #chart{ width:100%; height:auto; display:block; }
+    #chart text{ font-family:Arial, sans-serif; }
+    .tooltip{
+      position:fixed; pointer-events:none; opacity:0; transition:opacity .15s;
+      background:#0d1320; border:1px solid rgba(47,128,255,0.5); border-radius:12px;
+      padding:10px 14px; font-size:13px; z-index:200;
+    }
+
+    /* Categories */
+    .cats{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .cat{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px; padding:26px;
+    }
+    .cat.highlight{ border-color:rgba(47,128,255,0.45); background:linear-gradient(160deg,rgba(47,128,255,0.12),rgba(255,255,255,0.02)); }
+    .cat h3{ font-size:19px; margin-bottom:14px; }
+    .cat .big{ font-size:36px; font-weight:bold; color:#2f80ff; line-height:1.1; }
+    .cat .sub{ color:#9aa4b2; font-size:14px; margin-top:8px; }
+
+    /* Campaigns */
+    .campaigns{ display:grid; grid-template-columns:1.4fr 1fr; gap:20px; }
+    .campaign{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px; padding:34px;
+    }
+    .campaign.feature{
+      border-color:rgba(47,128,255,0.45);
+      background:linear-gradient(150deg,rgba(47,128,255,0.16),rgba(255,255,255,0.02));
+    }
+    .campaign .tag{
+      display:inline-block; padding:5px 12px; border-radius:999px; font-size:12px;
+      letter-spacing:1px; text-transform:uppercase; color:#8fb8ff;
+      background:rgba(47,128,255,0.15); border:1px solid rgba(47,128,255,0.4); margin-bottom:16px;
+    }
+    .campaign h3{ font-size:28px; line-height:1.2; margin-bottom:10px; }
+    .campaign p{ color:#9aa4b2; font-size:16px; }
+    .campaign-stats{ display:flex; flex-wrap:wrap; gap:28px; margin:26px 0 8px; }
+    .campaign-stats strong{ display:block; font-size:40px; line-height:1.1; }
+    .campaign.feature .campaign-stats strong{ color:white; }
+    .campaign-stats span{ color:#9aa4b2; font-size:14px; }
+    .progress{ position:relative; height:14px; border-radius:7px; background:rgba(255,255,255,0.08); margin-top:34px; }
+    .progress-fill{ height:100%; width:100%; border-radius:7px; background:linear-gradient(90deg,#2f80ff,#6aa5ff); }
+    .progress-target{ position:absolute; top:-8px; bottom:-8px; left:71.4%; border-left:2px dashed white; }
+    .progress-target span{ position:absolute; top:-26px; left:-30px; font-size:13px; color:#cfd6e0; white-space:nowrap; }
+
+    /* Top posts */
+    .posts{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .post{
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px; padding:26px; display:flex; flex-direction:column; gap:12px;
+    }
+    .post .rank{ color:#2f80ff; font-weight:bold; font-size:13px; letter-spacing:1px; text-transform:uppercase; }
+    .post h3{ font-size:19px; line-height:1.35; }
+    .post .date{ color:#9aa4b2; font-size:14px; }
+    .post .eng{ display:flex; gap:18px; margin-top:auto; font-weight:bold; }
+    .post .eng span{ color:#9aa4b2; font-weight:normal; }
+
+    /* Organic callout */
+    .callout{
+      display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center;
+      padding:40px; border-radius:28px;
+      background:linear-gradient(135deg,rgba(47,128,255,0.18),rgba(255,255,255,0.02));
+      border:1px solid rgba(47,128,255,0.35);
+    }
+    .callout .num{ font-size:72px; font-weight:800; line-height:1; }
+    .callout p{ color:#cfd6e0; font-size:18px; }
+
+    .skills{ display:flex; flex-wrap:wrap; gap:14px; }
+    .skill{
+      padding:14px 20px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03); font-weight:bold;
+    }
+
+    .method{ color:#9aa4b2; font-size:15px; max-width:820px; }
+    .method li{ margin:0 0 10px 18px; }
+
+    .cta{
+      text-align:center; padding:60px; border-radius:28px;
+      background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);
+    }
+    .cta p{ color:#9aa4b2; max-width:640px; margin:18px auto 32px; font-size:18px; }
+    .buttons{ display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+    .btn{
+      padding:16px 26px; border-radius:14px; text-decoration:none; font-weight:bold;
+      transition:0.2s; border:1px solid rgba(255,255,255,0.1); color:white;
+    }
+    .btn-primary{ background:#2f80ff; }
+    .btn:hover{ transform:translateY(-2px); }
+
+    footer{ text-align:center; padding:40px 0; color:#9aa4b2; border-top:1px solid rgba(255,255,255,0.08); }
+
+    @media(max-width:950px){
+      .hero h1{ font-size:54px; }
+      .kpis{ grid-template-columns:1fr 1fr; }
+      .roles, .cats, .posts{ grid-template-columns:1fr 1fr; }
+      .campaigns{ grid-template-columns:1fr; }
+      .callout{ grid-template-columns:1fr; }
+    }
+    @media(max-width:700px){
+      .hero{ padding:70px 0 60px; }
+      .hero h1{ font-size:40px; }
+      .hero .lead{ font-size:18px; }
+      h2{ font-size:36px; }
+      .kpi strong{ font-size:34px; }
+      .roles, .cats, .posts{ grid-template-columns:1fr; }
+      .row{ grid-template-columns:1fr; gap:10px; }
+      .delta{ text-align:left; }
+      .chart-card{ padding:20px; }
+      section{ padding:70px 0; }
+      .cta{ padding:40px 24px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="index.html" class="logo">Lucas <span>Cucco</span></a>
+    <a href="index.html#experience" class="back">← Back to portfolio</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">Case study · Barnes FC</div>
+    <h1>Growing a 160-year-old club’s Instagram <span class="blue">2.6x</span>, all organic</h1>
+    <p class="lead">
+      From August 2023 to August 2024 I ran Barnes FC’s Instagram end to end. I shot the matchday photos,
+      designed the graphics, wrote the posts and published them. Followers grew from about 500 to about 1,300.
+    </p>
+    <div class="meta">
+      <span class="chip">Volunteer Marketing Manager</span>
+      <span class="chip">Aug 2023 – Aug 2024</span>
+      <span class="chip">London · Grassroots football</span>
+      <span class="chip">@barnesfootballclub</span>
+    </div>
+
+    <div class="kpis">
+      <div class="kpi"><strong>2.6x</strong><span>Followers</span><small>~500 → ~1,300 in 12 months</small></div>
+      <div class="kpi"><strong>+28%</strong><span>Average likes per post</span><small>26.5 → 33.8</small></div>
+      <div class="kpi"><strong>2.1x</strong><span>Total likes per month</span><small>~289 → ~604</small></div>
+      <div class="kpi"><strong>3.2x</strong><span>Share of posts with 50+ likes</span><small>4.6% → 14.7%</small></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">The club</div>
+    <h2>Pioneers of football, quiet online</h2>
+    <p class="section-text">
+      Barnes FC was founded in 1862 and is a founding member of The Football Association. Before I took over,
+      the account posted irregularly. It published 13 posts in its first ten months, and around 11 a month in the
+      year before I joined. Only 1 in 20 posts reached 50 likes.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">My role</div>
+    <h2>One person, the whole pipeline</h2>
+    <p class="section-text">I owned every step, from the touchline to the published post.</p>
+
+    <div class="roles">
+      <div class="role">
+        <div class="icon">📸</div>
+        <h3>Matchday photography</h3>
+        <p>I photographed first-team and reserves fixtures, giving the club original action and squad imagery every week.</p>
+      </div>
+      <div class="role">
+        <div class="icon">🎨</div>
+        <h3>Graphic design</h3>
+        <p>I created the club’s visual identity online: matchday, result, fixture, kit-launch and partner graphics.</p>
+      </div>
+      <div class="role">
+        <div class="icon">📱</div>
+        <h3>Social media management</h3>
+        <p>I planned, wrote and published posts, kept a steady matchday rhythm and tracked what performed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Results</div>
+    <h2>Before vs. during my 12 months</h2>
+    <p class="section-text">Compared with the 12 months before I took over (Aug 2022 – Jul 2023).</p>
+
+    <div class="legend"><span>12 months before</span><span class="now">My 12 months</span></div>
+
+    <div class="compare" id="compare"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="chart-card">
+      <h3>Average likes per post rose 28%</h3>
+      <p>Average likes per post by month, Aug 2022 – Aug 2024. Dashed lines show each period’s average.</p>
+      <svg id="chart" viewBox="0 0 1000 420" role="img" aria-label="Average likes per post by month, before and during Lucas's period"></svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Content strategy</div>
+    <h2>What drove the growth</h2>
+    <p class="section-text">
+      I posted more of what fans engaged with, and made every post better. Average interactions (likes + comments)
+      per post, compared with the year before.
+    </p>
+
+    <div class="cats">
+      <div class="cat highlight">
+        <h3>Matchday &amp; fixtures</h3>
+        <div class="big">+58%</div>
+        <div class="sub">Engagement per post · 2x more posts (22 → 44)</div>
+      </div>
+      <div class="cat highlight">
+        <h3>Giveaways &amp; fundraising</h3>
+        <div class="big">+60%</div>
+        <div class="sub">Engagement per post · grew from 3 to 21 posts</div>
+      </div>
+      <div class="cat">
+        <h3>Player &amp; team highlights</h3>
+        <div class="big">+22%</div>
+        <div class="sub">Engagement per post · 48 → 64 posts</div>
+      </div>
+      <div class="cat">
+        <h3>Results &amp; live scores</h3>
+        <div class="big">+17%</div>
+        <div class="sub">Engagement per post · 2x more posts (20 → 43)</div>
+      </div>
+      <div class="cat">
+        <h3>More video</h3>
+        <div class="big">13% → 24%</div>
+        <div class="sub">Share of posts that were video · +35% engagement per video</div>
+      </div>
+      <div class="cat">
+        <h3>Partner visibility</h3>
+        <div class="big">2.1x</div>
+        <div class="sub">Posts crediting club partners (55 → 115), built into matchday and kit content</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Campaigns</div>
+    <h2>Growth campaigns I led</h2>
+    <p class="section-text">Beyond regular posting, I ran campaigns to grow the audience and raise money for the club.</p>
+
+    <div class="campaigns">
+      <div class="campaign feature">
+        <div class="tag">Fundraising</div>
+        <h3>Funding a new women’s team</h3>
+        <p>I ran the social campaign behind a donation drive to create a women’s team at Barnes FC. The goal was 50 donors.</p>
+        <div class="campaign-stats">
+          <div><strong>£7,260</strong><span>raised</span></div>
+          <div><strong>70</strong><span>donors</span></div>
+          <div><strong>+40%</strong><span>above the 50-donor target</span></div>
+        </div>
+        <div class="progress" aria-label="70 donors against a target of 50">
+          <div class="progress-fill"></div>
+          <div class="progress-target"><span>Target: 50</span></div>
+        </div>
+      </div>
+
+      <div class="campaign">
+        <div class="tag">Audience growth</div>
+        <h3>Club-history shirt giveaway</h3>
+        <p>I created a giveaway where followers could win a club-history shirt, to bring new people to the account.</p>
+        <div class="campaign-stats">
+          <div><strong>148</strong><span>likes</span></div>
+          <div><strong>15</strong><span>comments, the most of my period</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Highlights</div>
+    <h2>Top posts from my period</h2>
+    <p class="section-text">My best posts drew 3–6x the average engagement of the year before.</p>
+
+    <div class="posts">
+      <div class="post">
+        <div class="rank">#1</div>
+        <h3>Video: the manager’s review of the Ashtead FC match</h3>
+        <div class="date">1 Oct 2023</div>
+        <div class="eng"><b>154 <span>likes</span></b><b>6 <span>comments</span></b></div>
+      </div>
+      <div class="post">
+        <div class="rank">#2</div>
+        <h3>“Win More Than a Shirt”: club-history shirt giveaway</h3>
+        <div class="date">7 Jan 2024</div>
+        <div class="eng"><b>148 <span>likes</span></b><b>15 <span>comments</span></b></div>
+      </div>
+      <div class="post">
+        <div class="rank">#3</div>
+        <h3>Matchday update: venue change for the Junction Elite FC game</h3>
+        <div class="date">3 Nov 2023</div>
+        <div class="eng"><b>107 <span>likes</span></b><b>1 <span>comment</span></b></div>
+      </div>
+      <div class="post">
+        <div class="rank">#4</div>
+        <h3>2024/25 men’s kit launch</h3>
+        <div class="date">19 Jun 2024</div>
+        <div class="eng"><b>81 <span>likes</span></b><b>6 <span>comments</span></b></div>
+      </div>
+      <div class="post">
+        <div class="rank">#5</div>
+        <h3>2023/24 end-of-season awards</h3>
+        <div class="date">12 May 2024</div>
+        <div class="eng"><b>77 <span>likes</span></b><b>2 <span>comments</span></b></div>
+      </div>
+      <div class="post">
+        <div class="rank">#6</div>
+        <h3>River Gate Trophy win</h3>
+        <div class="date">18 Aug 2024</div>
+        <div class="eng"><b>75 <span>likes</span></b><b>4 <span>comments</span></b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="callout">
+      <div class="num blue">£0</div>
+      <p><strong>Every result here is organic.</strong> No post was boosted and no ads were run. The growth came from
+      original photography, consistent design and posting what the club’s community wanted to see.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Skills</div>
+    <h2>What this project shows</h2>
+    <div class="skills">
+      <div class="skill">Social Media Management</div>
+      <div class="skill">Content Strategy</div>
+      <div class="skill">Sports Photography</div>
+      <div class="skill">Graphic Design</div>
+      <div class="skill">Copywriting</div>
+      <div class="skill">Partner Activation</div>
+      <div class="skill">Performance Analysis</div>
+      <div class="skill">Community Engagement</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow">Methodology</div>
+    <h2>How I measured it</h2>
+    <ul class="method">
+      <li>I collected every public post on the club’s Instagram (784 posts) and recorded the date, likes, visible comments and format of each.</li>
+      <li>I compared my period (2 Aug 2023 – 19 Aug 2024) with the 12 months before it. The account’s earlier history was too sparse for a fair comparison.</li>
+      <li>Posts were grouped into content categories from their captions.</li>
+      <li>Follower figures are approximate, because Instagram does not show follower history publicly.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <div class="eyebrow">Contact</div>
+      <h2>Let’s talk</h2>
+      <p>I bring together data analysis and content. Happy to chat about data, marketing operations or social media roles.</p>
+      <div class="buttons">
+        <a href="mailto:lucasregua@gmail.com" class="btn btn-primary">Email me</a>
+        <a href="index.html" class="btn">Back to portfolio</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Lucas Cucco · London, United Kingdom</footer>
+
+<div class="tooltip" id="tip"></div>
+
+<script>
+  // Before vs during comparison bars
+  const compare = [
+    { label: "Posts per month", before: 10.9, now: 17.9, fmt: v => v.toFixed(1) },
+    { label: "Average likes per post", before: 26.5, now: 33.8, fmt: v => v.toFixed(1) },
+    { label: "Median likes per post", before: 24, now: 30, fmt: v => v },
+    { label: "Total likes per month", before: 289, now: 604, fmt: v => "~" + v },
+    { label: "Posts with 50+ likes", before: 4.6, now: 14.7, fmt: v => v + "%" }
+  ];
+  const cmp = document.getElementById("compare");
+  compare.forEach(m => {
+    const max = Math.max(m.before, m.now);
+    const pct = v => (v / max * 100).toFixed(1);
+    const change = m.now / m.before;
+    const delta = change >= 2 ? change.toFixed(1) + "x" : "+" + Math.round((change - 1) * 100) + "%";
+    cmp.insertAdjacentHTML("beforeend",
+      '<div class="row"><div class="label">' + m.label + '</div><div class="bars">' +
+      '<div class="bar"><i style="width:calc(' + pct(m.before) + '% - 70px)"></i>' + m.fmt(m.before) + '</div>' +
+      '<div class="bar now"><i style="width:calc(' + pct(m.now) + '% - 70px)"></i>' + m.fmt(m.now) + '</div>' +
+      '</div><div class="delta">' + delta + '</div></div>');
+  });
+
+  // Monthly chart: average likes per post
+  const rows = [
+    ["Aug 22",0,7,143],["Sep 22",0,6,138],["Oct 22",0,5,83],["Nov 22",0,11,213],["Dec 22",0,7,133],
+    ["Jan 23",0,5,89],["Feb 23",0,12,266],["Mar 23",0,15,368],["Apr 23",0,11,228],["May 23",0,10,248],
+    ["Jun 23",0,15,569],["Jul 23",0,27,992],
+    ["Aug 23",1,24,749],["Sep 23",1,28,853],["Oct 23",1,17,666],["Nov 23",1,15,445],["Dec 23",1,16,577],
+    ["Jan 24",1,40,1496],["Feb 24",1,12,319],["Mar 24",1,19,553],["Apr 24",1,12,304],["May 24",1,8,317],
+    ["Jun 24",1,7,298],["Jul 24",1,9,303],["Aug 24",1,18,721]
+  ].map(([m, during, posts, likes]) => ({ m, during, posts, likes, avg: likes / posts }));
+
+  const svg = document.getElementById("chart");
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 1000, H = 420, L = 48, R = 12, T = 40, B = 46;
+  const plotW = W - L - R, plotH = H - T - B, max = 50;
+  const band = plotW / rows.length;
+  const x = i => L + i * band, y = v => T + plotH - v / max * plotH;
+  const el = (tag, attrs, text) => {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    svg.appendChild(e); return e;
+  };
+  [0, 10, 20, 30, 40, 50].forEach(t => {
+    el("line", { x1: L, x2: W - R, y1: y(t), y2: y(t), stroke: "rgba(255,255,255,0.07)" });
+    el("text", { x: L - 10, y: y(t) + 4, "text-anchor": "end", fill: "#6f7a89", "font-size": 13 }, t);
+  });
+  const tip = document.getElementById("tip");
+  rows.forEach((r, i) => {
+    const bar = el("rect", {
+      x: x(i) + 4, y: y(r.avg), width: band - 8, height: T + plotH - y(r.avg), rx: 5,
+      fill: r.during ? "#2f80ff" : "#3a4250"
+    });
+    bar.addEventListener("mousemove", e => {
+      tip.innerHTML = "<strong>" + r.m + "</strong><br>" + r.avg.toFixed(1) + " likes per post<br><span style=\"color:#9aa4b2\">" + r.posts + " posts</span>";
+      tip.style.left = (e.clientX + 14) + "px"; tip.style.top = (e.clientY + 14) + "px"; tip.style.opacity = 1;
+    });
+    bar.addEventListener("mouseleave", () => tip.style.opacity = 0);
+    if (i % 2 === 0) el("text", { x: x(i) + band / 2, y: H - 18, "text-anchor": "middle", fill: "#9aa4b2", "font-size": 13 }, r.m);
+  });
+  const avgOf = d => { const s = rows.filter(r => r.during === d); return s.reduce((a, r) => a + r.likes, 0) / s.reduce((a, r) => a + r.posts, 0); };
+  const split = rows.findIndex(r => r.during);
+  const bA = avgOf(0), dA = avgOf(1);
+  el("line", { x1: L, x2: x(split), y1: y(bA), y2: y(bA), stroke: "#cfd6e0", "stroke-dasharray": "6 5", "stroke-width": 2 });
+  el("text", { x: L + 8, y: y(bA) - 10, fill: "#cfd6e0", "font-size": 14, stroke: "#0b0e14", "stroke-width": 5, "paint-order": "stroke" }, "Before: " + bA.toFixed(1));
+  el("line", { x1: x(split), x2: W - R, y1: y(dA), y2: y(dA), stroke: "#ffffff", "stroke-dasharray": "6 5", "stroke-width": 2 });
+  el("text", { x: x(split) + 8, y: y(dA) - 10, fill: "#ffffff", "font-size": 14, "font-weight": "bold", stroke: "#0b0e14", "stroke-width": 5, "paint-order": "stroke" }, "My period: " + dA.toFixed(1));
+  el("line", { x1: x(split), x2: x(split), y1: T - 18, y2: T + plotH, stroke: "rgba(255,255,255,0.35)" });
+  el("text", { x: x(split) + 8, y: T - 22, fill: "#2f80ff", "font-size": 14, "font-weight": "bold" }, "I took over · Aug 2023");
+</script>
+
+</body>
+</html>
