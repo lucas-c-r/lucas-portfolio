@@ -206,6 +206,26 @@
     .post .eng{ display:flex; gap:18px; margin-top:auto; font-weight:bold; }
     .post .eng span{ color:#5c6370; font-weight:normal; }
 
+    /* Commitment band */
+    .commit-band{
+      margin-top:22px; padding:40px 44px; border-radius:28px; color:#ffffff;
+      background:linear-gradient(135deg,#0b6b57,#0f4f42); box-shadow:0 18px 40px rgba(11,107,87,0.22);
+      display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:center;
+    }
+    .commit-band h3{ font-size:30px; line-height:1.2; color:#ffffff; }
+    .commit-band p{ color:rgba(255,255,255,0.88); font-size:16px; margin-top:12px; }
+    .commit-list{ display:grid; gap:12px; }
+    .commit-list div{
+      display:flex; align-items:center; gap:14px; padding:14px 18px; border-radius:16px;
+      background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); font-weight:600;
+    }
+    .commit-list span{ font-size:22px; }
+    .club-facts{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+    .club-facts div{
+      padding:12px 18px; border-radius:16px; background:#ffffff; border:1px solid #e4ded3; font-size:15px; color:#3b414b;
+    }
+    .club-facts strong{ color:#0b6b57; margin-right:6px; }
+
     /* Organic callout */
     .callout{
       display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center;
@@ -246,7 +266,9 @@
       .roles, .cats, .posts{ grid-template-columns:1fr 1fr; }
       .campaigns, .story, .campaign.split{ grid-template-columns:1fr; }
       .gallery.designs{ grid-template-columns:1fr 1fr; }
-      .callout{ grid-template-columns:1fr; }
+      .callout, .commit-band{ grid-template-columns:1fr; }
+      .commit-band{ padding:30px 24px; gap:26px; }
+      .commit-band h3{ font-size:25px; }
     }
     @media(max-width:700px){
       .hero{ padding:70px 0 60px; }
@@ -293,7 +315,7 @@
     <h1>Growing a 160-year-old club’s Instagram <span class="blue">2.6x</span>, all organic</h1>
     <p class="lead">
       I joined Barnes FC as a marketing volunteer in July 2023 and ran its social media from August 2023 to August 2024,
-      creating more than 90% of the club’s posts. I shot the matchday photos, designed the graphics, wrote the posts and
+      alongside a full-time job, creating more than 90% of the club’s posts. I shot the matchday photos, designed the graphics, wrote the posts and
       published them. Followers grew from about 500 to about 1,300.
     </p>
     <div class="meta">
@@ -315,11 +337,21 @@
 <section>
   <div class="container">
     <div class="eyebrow">The club</div>
-    <h2>Pioneers of football, quiet online</h2>
+    <h2>A club that helped invent the game</h2>
     <p class="section-text">
-      Barnes FC was founded in 1862 and is a founding member of The Football Association. Before I took over,
-      the account posted irregularly. It published 13 posts in its first ten months, and around 11 a month in the
-      year before I joined. Only 1 in 20 posts reached 50 likes.
+      Barnes FC was founded in 1862 and was one of the founding clubs of The Football Association in 1863. Its founder,
+      Ebenezer Morley, became the FA’s first secretary and drafted the first Laws of the Game. More than 160 years later,
+      the club is run by volunteers and is working its way back up the English football pyramid.
+    </p>
+    <div class="club-facts">
+      <div><strong>1862</strong>Club founded</div>
+      <div><strong>1863</strong>Founding member of The FA</div>
+      <div><strong>Today</strong>Run by volunteers</div>
+    </div>
+    <p class="section-text" style="margin-top:26px">
+      A history like that deserved a strong presence online. Before I took over, the account posted irregularly.
+      It published 13 posts in its first ten months, and around 11 a month in the year before I joined.
+      Only 1 in 20 posts reached 50 likes.
     </p>
   </div>
 </section>
@@ -384,6 +416,19 @@
           <h3>Self-taught design</h3>
           <p>This was my first experience with Photoshop and Canva. I taught myself both and built the club’s matchday graphics from scratch.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="commit-band">
+      <div>
+        <h3>All of this as a volunteer, on top of a full-time job</h3>
+        <p>When I said yes to Barnes FC, I committed to doing everything I could for the club. I fitted the matchdays, the editing, the design and the posting around a full-time job as a bartender and my studies.</p>
+        <p>It was unpaid, and it was one of the most rewarding things I’ve done. Helping a club with this much history was a real pleasure.</p>
+      </div>
+      <div class="commit-list">
+        <div><span>🍸</span>Full-time bartender</div>
+        <div><span>📚</span>Studying at the same time</div>
+        <div><span>⚽</span>Barnes FC volunteer, every matchday</div>
       </div>
     </div>
   </div>
@@ -492,7 +537,7 @@
       <div class="campaign feature">
         <div class="tag">Fundraising</div>
         <h3>Funding a new women’s team</h3>
-        <p>I ran the social campaign behind a donation drive to create a women’s team at Barnes FC. The goal was 50 donors.</p>
+        <p>I led the Instagram campaigns behind the club’s donation drive to create a women’s team at Barnes FC. The goal was 50 donors.</p>
         <div class="campaign-stats">
           <div><strong>£7,260</strong><span>raised</span></div>
           <div><strong>70</strong><span>donors</span></div>
