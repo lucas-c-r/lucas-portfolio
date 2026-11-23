@@ -474,6 +474,21 @@
       text-decoration:underline;
     }
 
+    .volunteering{ padding-top:0; border-top:0; }
+    #experience{ padding-bottom:56px; }
+    .vol-title{ font-size:32px; margin-bottom:22px; }
+    .vol-card{
+      display:grid; grid-template-columns:180px 1fr; gap:28px; padding:26px 30px;
+      border-radius:22px; background:#ffffff; border:1px solid #e4ded3; color:inherit; text-decoration:none;
+      transition:border-color .2s, transform .2s;
+    }
+    .vol-card:hover{ border-color:rgba(11,107,87,0.45); transform:translateY(-2px); }
+    .vol-date{ color:#5c6370; font-size:14px; font-weight:600; padding-top:3px; }
+    .vol-card h3{ font-size:18px; margin-bottom:8px; }
+    .vol-card p{ color:#5c6370; font-size:15px; }
+    .vol-card .read-more{ display:inline-block; margin-top:12px; color:#0b6b57; font-weight:600; font-size:14px; }
+    @media (max-width:700px){ .vol-card{ grid-template-columns:1fr; gap:8px; padding:22px; } }
+
     /* Selected projects */
     .projects-grid{
       display:grid;
@@ -704,7 +719,7 @@
     </h2>
 
     <p class="section-text">
-      Selected work across product data, process improvement and sports content.
+      Product master data and SAP operations work from my roles at Lacoste and MAN Energy Solutions.
     </p>
 
     <div class="projects-grid">
@@ -719,15 +734,15 @@
         <span class="project-link">View case study →</span>
       </a>
 
-      <a href="barnes-fc.html" class="project-card">
-        <div class="project-tag">Barnes FC · Content &amp; performance analysis</div>
-        <h3>Growing a grassroots club’s Instagram with organic content</h3>
-        <p>Creating football content, with an AI-assisted retrospective analysis of 356 Instagram posts comparing performance before and during my management.</p>
+      <a href="man-energy.html" class="project-card">
+        <div class="project-tag">MAN Energy Solutions · SAP &amp; supply chain operations</div>
+        <h3>Two hands-on years in SAP and supply chain operations</h3>
+        <p>Creating material master data, raising purchase orders and posting goods receipts in SAP ECC, working daily with suppliers and Finance.</p>
         <div class="project-stats">
-          <div><strong>+28%</strong><span>average likes per post</span></div>
-          <div><strong>£7,260</strong><span>raised for a women’s team</span></div>
+          <div><strong>2 years</strong><span>live SAP ECC transactions</span></div>
+          <div><strong>PO → payment</strong><span>MM41 · ME21N · MIGO</span></div>
         </div>
-        <span class="project-link">View case study →</span>
+        <span class="project-link">View role →</span>
       </a>
     </div>
   </div>
@@ -744,7 +759,7 @@
     </h2>
 
     <p class="section-text">
-      Master data, SAP S/4HANA and supply chain experience, plus volunteer work in sports content.
+      Master data, SAP S/4HANA and supply chain experience.
     </p>
 
     <div class="timeline">
@@ -775,32 +790,6 @@
         </div>
       </a>
 
-      <a href="barnes-fc.html" class="timeline-item timeline-link" aria-label="Barnes FC — read more about this role">
-        <div class="timeline-date">
-          Jul 2023 — Oct 2024
-          <span class="timeline-meta">Instagram: Aug 2023 – Aug 2024</span>
-          <span class="case-badge">Read more</span>
-        </div>
-
-        <div>
-          <h3>
-            Marketing &amp; Social Media Volunteer
-          </h3>
-
-          <h4>
-            Barnes FC · London
-          </h4>
-
-          <ul>
-            <li>Managed the club’s Instagram from Aug 2023 to Aug 2024, creating 90%+ of posts: matchday photography, graphic design and copywriting.</li>
-            <li>Followers grew from roughly 500 to 1,300 and average likes per post rose 28%, with no paid promotion.</li>
-            <li>Led the social media campaign supporting a women’s team fundraiser, which raised £7,260 from 70 donors against a target of 50.</li>
-          </ul>
-
-          <span class="read-more">Read more about this role →</span>
-        </div>
-      </a>
-
       <a href="man-energy.html" class="timeline-item timeline-link" aria-label="MAN Energy Solutions — read more about this role">
         <div class="timeline-date">
           Jul 2019 — Jul 2021
@@ -826,6 +815,22 @@
         </div>
       </a>
     </div>
+  </div>
+</section>
+
+<section id="volunteering" class="volunteering">
+  <div class="container">
+    <div class="eyebrow">Other experience</div>
+    <h2 class="vol-title">Volunteering</h2>
+
+    <a href="barnes-fc.html" class="vol-card" aria-label="Barnes FC volunteering — read more">
+      <div class="vol-date">Jul 2023 — Oct 2024</div>
+      <div>
+        <h3>Marketing &amp; Social Media Volunteer · Barnes FC, London</h3>
+        <p>Alongside a full-time job, I ran the Instagram of one of the FA’s founding clubs, creating 90%+ of posts with my own photography and design. Followers grew from about 500 to 1,300 with no paid promotion, and I led the Instagram campaigns for a women’s team fundraiser that raised £7,260.</p>
+        <span class="read-more">See the Barnes FC project →</span>
+      </div>
+    </a>
   </div>
 </section>
 
